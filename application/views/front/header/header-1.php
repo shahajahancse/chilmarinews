@@ -11,7 +11,22 @@
     <div class="container">
         <div style="display:table; width:100%;">
             <div style="display:table-row;">
-                <div class="top-bar-left" style="display:table-cell; float:none; text-align:left;">
+                <div class="top-bar-left" style="display:table-cell;">
+                <div class="list-inline">
+                        <!-- <li class="header_clock hidden-sm  hidden-xs">
+                            <ul>
+                                <li class="number" id="hours"></li>
+                                <li id="point">:</li>
+                                <li class="number" id="min"></li>
+                                <li id="point">:</li>
+                                <li class="number" id="sec"></li>
+                                <li id="period"></li>
+                            </ul>
+                        </li> -->
+                        <li class="hidden-sm hidden-xs">
+                            <div id="Date" class="date"></div>
+                        </li>
+                    </div>
                     <ul class="list-inline">
                         <li class="dropdown flags">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -47,9 +62,9 @@
                                 ?>
                             </ul>
                         </li>
-                        <li class="dropdown flags">
+                        <!-- <li class="dropdown flags">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <?php
+                                < ?php
                                     if($currency_id = $this->session->userdata('currency'))
                                     {}
                                     else {
@@ -58,34 +73,34 @@
                                     $symbol = $this->db->get_where('currency_settings',array('currency_settings_id'=>$currency_id))->row()->symbol;
                                     $c_name = $this->db->get_where('currency_settings',array('currency_settings_id'=>$currency_id))->row()->name;
                                 ?>
-                                <span class="hidden-xs"><?php echo $c_name; ?></span> (<?php echo $symbol; ?>)
+                                <span class="hidden-xs">< ?php echo $c_name; ?></span> (< ?php echo $symbol; ?>)
                                 <i class="fa fa-caret-down"></i>
                             </a>
                             <ul role="menu" class="dropdown-menu">
-                                <?php
+                                < ?php
                                     $currencies = $this->db->get_where('currency_settings',array('status'=>'ok'))->result_array();
                                     foreach ($currencies as $row)
                                     {
                                 ?>
-                                    <li <?php if($currency_id == $row['currency_settings_id']){ ?>class="active"<?php } ?> >
-                                        <a class="set_langs" data-href="<?php echo base_url(); ?>home/set_currency/<?php echo $row['currency_settings_id']; ?>">
-                                            <?php echo $row['name']; ?> (<?php echo $row['symbol']; ?>)
-                                            <?php if($currency_id == $row['currency_settings_id']){ ?>
+                                    <li < ?php if($currency_id == $row['currency_settings_id']){ ?>class="active"< ?php } ?> >
+                                        <a class="set_langs" data-href="< ?php echo base_url(); ?>home/set_currency/< ?php echo $row['currency_settings_id']; ?>">
+                                            < ? php echo $row['name']; ?> (< ?php echo $row['symbol']; ?>)
+                                            < ?php if($currency_id == $row['currency_settings_id']){ ?>
                                                 <i class="fa fa-check"></i>
-                                            <?php } ?>
+                                            < ?php } ?>
                                         </a>
                                     </li>
-                                <?php
+                                < ? php
                                     }
                                 ?>
                             </ul>
                         </li>
                         <li class="hidden-sm hidden-xs">
-                            <a href="<?php echo base_url(); ?>home/marketing" class="link">
+                            <a href="< ?php echo base_url(); ?>home/marketing" class="link">
                                 <i class="fa fa-bullhorn"></i>
-                                <?php echo translate('apply_for_advertise'); ?>
+                                < ?php echo translate('apply_for_advertise'); ?>
                             </a>
-                        </li>
+                        </li> -->
                         <?php if (@$this->db->get_where('user',array('user_id' => $this->session->userdata('user_id')))->row()->is_blogger == 'yes'): ?>
                         <li class="hidden-sm hidden-xs">
                             <a href="<?php echo base_url(); ?>home/profile/pfp" class="link">
@@ -98,7 +113,13 @@
                     </ul>
                 </div>
                 <div class="top-bar-middle" style="display:table-cell; float:none; text-align:center;">
-                    <ul class="list-inline">
+
+                <ul class="logo pull-left hidden-sm hidden-xs">
+                       <li> <a href="<?php echo base_url(); ?>">
+                            <img class="img-responsive" src="<?php echo $this->Crud_model->logo('home_top_logo'); ?>" >
+                        </a></li>
+                </ul>
+                    <!-- <ul class="list-inline">
                         <li class="header_clock hidden-sm  hidden-xs">
                             <ul>
                                 <li class="number" id="hours"></li>
@@ -112,7 +133,7 @@
                         <li class="hidden-sm hidden-xs">
                             <div id="Date" class="date"></div>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="top-bar-right" style="display:table-cell; float:none; text-align:right;">
 
@@ -287,11 +308,11 @@
     <div class="header-wrapper">
         <div class="container">
             <!-- Logo -->
-            <div class="logo pull-left hidden-sm hidden-xs">
-                <a href="<?php echo base_url(); ?>">
-                    <img class="img-responsive" src="<?php echo $this->Crud_model->logo('home_top_logo'); ?>" >
+            <!-- <div class="logo pull-left hidden-sm hidden-xs">
+                <a href="< ?php echo base_url(); ?>">
+                    <img class="img-responsive" src="< ? php echo $this->Crud_model->logo('home_top_logo'); ?>" >
                 </a>
-            </div>
+            </div> -->
             <div class="logo hidden-lg hidden-md" style="max-width: 60%; width: 60%; display:inline-block; float:left;">
                 <a href="<?php echo base_url(); ?>">
                     <img class="img-responsive" src="<?php echo $this->Crud_model->logo('home_top_logo'); ?>" >
@@ -301,9 +322,9 @@
                 <span class="menu-toggle btn btn-theme-transparent pull-right" style="padding: 5px 12px; border-radius:4px;"><i class="fa fa-bars"></i></span>
             </div>
             <!-- /Logo -->
-            <div class="pull-right col-md-6 col-xs-12" style="padding:0;">
-                <?php echo $this->Html_model->advertise_header('header_1'); ?>
-            </div>
+            <!-- <div class="pull-right col-md-6 col-xs-12" style="padding:0;">
+                < ?php echo $this->Html_model->advertise_header('header_1'); ?>
+            </div> -->
         </div>
     </div>
 </header>
