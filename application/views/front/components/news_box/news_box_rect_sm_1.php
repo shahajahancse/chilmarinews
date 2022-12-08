@@ -1,7 +1,7 @@
-<div style="margin-top:30px;margin-bottom:30px">
+<div style="margin-top:0px;margin-bottom:15px;">
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="media">
                 <span class="media-link">
                     <?php 
@@ -14,7 +14,8 @@
                 </span> 
             </div>
         </div>
-        <div class="col-md-6 pad-l-0 hidden-sm hidden-xs">
+
+        <div class="col-md-8 pad-l-0 hidden-sm hidden-xs">
             <div class="caption down">
                 <h4 class="caption-title">
                     <a href="<?php echo $this->Crud_model->news_link($news_id);?>">
@@ -26,5 +27,7 @@
                 </div>
             </div>
         </div>
+
     </div>
+    <hr style="border-top: 1px solid #cbcbcb;">
 </div>

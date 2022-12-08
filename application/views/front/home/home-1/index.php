@@ -32,6 +32,7 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
 			include 'photo_gallery.php';
 		}
 	?>
+    
     <?php
     	if($detail_news_data['status']=='ok'){
 			include 'detail_news.php';
