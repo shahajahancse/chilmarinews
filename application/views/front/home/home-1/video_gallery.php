@@ -10,7 +10,7 @@
             <div class="panel-heading">
                 <h3><?php echo translate($video_gal_data['title']); ?></h3>
                 <a style="margin-top:-38px" href="<?php echo base_url();?>home/video_gallery" class="btn_seeMore">
-                   <h4 style="padding:0;margin:2px;"> <?php echo translate('see_more'); ?></h4>
+                   <?php echo translate('see_more'); ?>
                 </a>
             </div>
             <div class="panel-body">

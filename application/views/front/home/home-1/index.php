@@ -15,9 +15,26 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
 		}
 	?>
 
-<?php
+    <?php
 		if($video_gal_data['status']=='ok'){
 			include 'video_gallery.php';
+		}
+	?>
+        <?php
+		if($photo_gal_data['status']=='ok'){
+			include 'photo_gallery.php';
+		}
+	?>
+
+    <?php
+		if($special_category_data['status']=='ok'){
+			include 'special_category.php';
+		}
+	?>
+
+    <?php
+    	if($detail_news_data['status']=='ok'){
+			include 'detail_news.php';
 		}
 	?>
     <!-- <section class="page-section with-sidebar pad-tb-5">
@@ -34,7 +51,7 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
                 </div>
             </div> -->
 			<!-- /advertisement space -->
-        </div>
+        <!-- </div> -->
     <!-- </section> -->    
     <!-- < ?php
 		if($sliding_news['status']=='ok'){
@@ -57,11 +74,7 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
             <!-- /advertisement space -->
         <!-- </div>
     </section> -->
-    <?php
-    	if($detail_news_data['status']=='ok'){
-			include 'detail_news.php';
-		}
-	?>
+
     <!-- <section class="page-section with-sidebar pad-tb-5">
     	<div class="container"> -->
             <!-- /advertisement space -->
@@ -81,13 +94,9 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
             <!-- /advertisement space -->
         <!-- </div>
     </section> -->
-    <?php
-		if($photo_gal_data['status']=='ok'){
-			include 'photo_gallery.php';
-		}
-	?>
-    <section class="page-section with-sidebar pad-tb-5">
-    	<div class="container">
+
+    <!-- <section class="page-section with-sidebar pad-tb-5">
+    	<div class="container"> -->
             <!-- <-- /advertisement space -->
             <!-- <div class="advertise_space2">
                 <div class="row">
@@ -102,11 +111,11 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
             <!-- /advertisement space -->
         <!-- </div>
     </section> -->
-    <?php
+    <!-- < ?php
 		if($special_category_data['status']=='ok'){
 			include 'special_category.php';
 		}
-	?>
+	?> -->
     <!-- <section class="page-section with-sidebar pad-tb-5">
     	<div class="container"> -->
             <!-- /advertisement space -->
@@ -126,11 +135,11 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
             <!-- /advertisement space -->
         <!-- </div>
     </section> -->
-    <?php
+    <!-- < ?php
 		if($video_gal_data['status']=='ok'){
 			include 'video_gallery.php';
 		}
-	?>
+	?> -->
     <!-- <section class="page-section with-sidebar pad-tb-5">
     	<div class="container"> -->
             <!-- /advertisement space -->
