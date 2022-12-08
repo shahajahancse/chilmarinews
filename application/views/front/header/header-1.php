@@ -160,15 +160,38 @@
                 <ul class="menu-links"> <!-- active class -->
                     <li class="<?php if($page_name=='home/home-1'){echo "active";}?>">
                         <a href="<?php echo base_url(); ?>home">
-                            <i class="fa fa-home"></i>
-                            <?php echo translate('home'); ?>
-                        </a>
+                            <i class="fa fa-home"></i> প্রচ্ছদ</a>
                     </li>
-                    <li class="<?php if($page_name=='category_news' || $page_name == 'news_list'){echo "active";}?>">
+
+                    <li class="<?php if($page_name=='photo_gallery' || $page_name=='video_gallery'){echo "active";}?>">
+                        <a href="#">
+                            বাংলাদেশ
+                            <i class="fa fa-caret-down fa-indicator"></i>
+                        </a> <!-- drop down full width -->
+                        <div class="drop-down grid-col-2">
+                            <div class="grid-row">
+                                <ul>
+                                    <li><a href="<?php echo base_url(); ?>home/photo_gallery"><i class="fa fa-caret-right"></i>জাতীয়</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>রাজনৈতিক</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>অর্থনৈতিক</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>বিশেষ প্রতিবেদন</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="<?php if($page_name=='archive_news'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>home/archive_news/0/0">সারাদেশ</a>
+                    </li>
+                    <li class="<?php if($page_name=='archive_news'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>home/archive_news/0/0">আন্তর্জাতিক</a>
+                    </li>
+
+
+                    <!-- <li class="<?php if($page_name=='category_news' || $page_name == 'news_list'){echo "active";}?>">
                         <a href="<?php echo base_url(); ?>home/news/0/0">
                             <?php echo translate('news'); ?>
                             <i class="fa fa-caret-down fa-indicator"></i>
-                        </a> <!-- drop down full width -->
+                        </a> <?php //drop down full width ?>
                         <div class="drop-down grid-col-12">
                             <?php
                                 $i = 0;
@@ -219,18 +242,13 @@
                                 }
                             ?>
                         </div>
-                    </li>
-                    <li class="<?php if($page_name=='archive_news'){echo "active";}?>">
-                        <a href="<?php echo base_url(); ?>home/archive_news/0/0">
-                            <?php echo translate('archive_news'); ?>
-                        </a>
-                    </li>
+                    </li> -->
 
-                    <li class="<?php if($page_name=='photo_gallery' || $page_name=='video_gallery'){echo "active";}?>">
+                    <!-- <li class="<?php if($page_name=='photo_gallery' || $page_name=='video_gallery'){echo "active";}?>">
                         <a href="#">
                             <?php echo translate('media'); ?>
                             <i class="fa fa-caret-down fa-indicator"></i>
-                        </a> <!-- drop down full width -->
+                        </a> 
                         <div class="drop-down grid-col-2">
                             <div class="grid-row">
                                 <ul>
@@ -239,7 +257,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
 
                     <li class="<?php if($page_name=='contact'){echo "active";}?>">
                         <a href="<?php echo base_url(); ?>home/contact">
@@ -304,6 +322,7 @@
         </nav>
     </div>
 </div>
+
 <header class="header">
     <div class="header-wrapper">
         <div class="container">
@@ -328,6 +347,7 @@
         </div>
     </div>
 </header>
+
 <nav class="navigation closed clearfix hidden-lg hidden-md">
     <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
     <ul class="nav sf-menu">
@@ -426,6 +446,7 @@
         </li>
     </ul>
 </nav>
+
 <!-- /HEADER -->
 <script type="text/javascript">
     $('#top_search_button').on('click', function (e){
