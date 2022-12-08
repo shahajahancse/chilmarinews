@@ -8,7 +8,7 @@
 ?>
 <section class="page-section pad-tb-5">
     <div class="container-fluid">
-        <!-- <div class="row mar-lr--5">  -->
+        <div class="row mar-lr--5"> 
            
             <div  class="col-lg-9 col-md-6 col-sm-12 col-xs-12 <?php if($top_news_data['style']==2){ echo 'pull-right';} ?>" >
 				<?php
@@ -20,36 +20,36 @@
 
             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             	<div class="row">
-
-                    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
+                    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6" style="margin-bottom:10px">
         				<?php
 							if(isset($top_news[1])){
 								echo $this->Html_model->news_box('sqr_sm','2',$top_news[1]); 
 							}
 						?>
                     </div>
-
-                    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
-                        <?php
-							if(isset($top_news[2])){
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6" style="margin-bottom:10px">
+        				<?php
+							if(isset($top_news[1])){
 								echo $this->Html_model->news_box('sqr_sm','2',$top_news[2]); 
 							}
 						?>
                     </div>
-                    
-                    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6 mar-t-10">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6" style="margin-bottom:10px">
         				<?php
-							if(isset($top_news[3])){
+							if(isset($top_news[1])){
 								echo $this->Html_model->news_box('sqr_sm','2',$top_news[3]); 
 							}
 						?>
                     </div>
-
                 </div>
             </div>
 
 
 
-        <!-- </div> -->
+        </div>
     </div>
 </section>

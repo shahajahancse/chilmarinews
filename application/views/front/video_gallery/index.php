@@ -5,7 +5,7 @@
 <div class="content-area">
     <!-- PAGE WITH SIDEBAR -->
     <section class="page-section with-sidebar pad-t-15">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row mar-lr--5">
                 <?php include 'sidebar.php';?>
                 <!-- CONTENT -->
