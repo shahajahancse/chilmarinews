@@ -165,7 +165,7 @@
                             <i class="fa fa-home"></i> প্রচ্ছদ</a>
                     </li>
 
-                    <li class="<?php if($page_name=='photo_gallery' || $page_name=='video_gallery'){echo "active";}?>">
+                    <li class="<?php if($page_name=='national' || $page_name=='video_gallery'){echo "active";}?>">
                         <a href="#">
                             বাংলাদেশ
                             <i class="fa fa-caret-down fa-indicator"></i>
@@ -173,7 +173,7 @@
                         <div class="drop-down grid-col-2">
                             <div class="grid-row">
                                 <ul>
-                                    <li><a href="<?php echo base_url(); ?>home/photo_gallery"><i class="fa fa-caret-right"></i>জাতীয়</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/national"><i class="fa fa-caret-right"></i>জাতীয়</a></li>
                                     <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>রাজনীতি</a></li>
                                     <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>অর্থনীতি</a></li>
                                     <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>বিশেষ প্রতিবেদন</a></li>
@@ -291,7 +291,7 @@
                         <div class="drop-down grid-col-2">
                             <div class="grid-row">
                                 <ul>
-                                    <li><a href="<?php echo base_url(); ?>home/blog_photo_gallery"><i class="fa fa-caret-right"></i><?php echo translate('ফটো গ্যালারি'); ?></a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/photo_gallery"><i class="fa fa-caret-right"></i><?php echo translate('ফটো গ্যালারি'); ?></a></li>
                                     <li><a href="<?php echo base_url(); ?>home/blog_video_gallery"><i class="fa fa-caret-right"></i><?php echo translate('ভিডিও গ্যালারি'); ?></a></li>
                                 </ul>
                             </div>
