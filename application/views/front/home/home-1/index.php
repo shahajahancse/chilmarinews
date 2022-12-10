@@ -9,12 +9,24 @@ $video_gal_data = json_decode($this->Crud_model->get_settings_value('ui_settings
 $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings','home_cat','value'),true);
 ?>
 <div class="content-area">
-	<?php
+	
+    <!--  সর্বশেষ সংবাদ-->
+    <?php
 		if($top_news_data['status']=='ok'){
 			include 'top_news.php';
 		}
 	?>
 
+
+    <!-- মতামত-->
+
+    <?php
+    	if($detail_news_data['status']=='ok'){
+			include 'comment.php';
+		}
+	?>
+
+    <!-- ভিডিও গ্যালারি -->
     <?php
 		if($video_gal_data['status']=='ok'){
 			include 'video_gallery.php';
@@ -22,22 +34,65 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
 	?>
 
 
+    <!-- খেলাধুলা -->
     <?php
-		if($special_category_data['status']=='ok'){
-			include 'special_category.php';
+    	if($detail_news_data['status']=='ok'){
+			include 'sport.php';
 		}
 	?>
-        <?php
-		if($photo_gal_data['status']=='ok'){
-			include 'photo_gallery.php';
+    <!-- দেশজুড়ে -->
+    <?php
+    	if($detail_news_data['status']=='ok'){
+			include 'deshjure.php';
 		}
 	?>
-    
+    <!-- আন্তর্জাতিক -->
     <?php
     	if($detail_news_data['status']=='ok'){
 			include 'detail_news.php';
 		}
 	?>
+    <!-- রাজনীতি -->
+    <?php
+    	if($detail_news_data['status']=='ok'){
+			include 'political.php';
+		}
+	?>
+    <!-- অর্থনীতি -->
+    <?php
+    	if($detail_news_data['status']=='ok'){
+			include 'ecoonomics.php';
+		}
+	?>
+    <!-- জাতীয় -->
+    <?php
+    	if($detail_news_data['status']=='ok'){
+			include 'national.php';
+		}
+	?>
+    <!-- শিক্ষা / স্বাস্থ্য / ধর্ম / সাহিত্য -->
+    <?php
+    	if($detail_news_data['status']=='ok'){
+			include 'edu_hel_rel_lit.php';
+		}
+	?>
+    <!-- বিশেষ প্রতিবেদন -->
+    <?php
+		if($special_category_data['status']=='ok'){
+			include 'special_category.php';
+		}
+	?>
+    <!-- ফটো গ্যালারি-->
+    <?php
+		if($photo_gal_data['status']=='ok'){
+			include 'photo_gallery.php';
+		}
+	?>
+
+    
+
+    
+
     <!-- <section class="page-section with-sidebar pad-tb-5">
     	<div class="container">
             <!- /advertisement space -->
@@ -157,11 +212,11 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
             <!-- /advertisement space -->
        	<!-- </div>
     </section> -->
-    <?php
+    <!-- < ?php
 		if($home_cat_data['status']=='ok'){
 			include 'category_news.php';
 		}
-	?>
+	?> -->
     <!-- <section class="page-section with-sidebar pad-tb-5">
     	<div class="container"> -->
             <!-- /advertisement space -->

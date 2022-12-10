@@ -4,13 +4,15 @@
 	$this->db->where('status','published');
 	$videos	= $this->db->get('video')->result_array();
 ?>
-<section class="page-section with-sidebar pad-tb-5 gallery_slider">
+<section class=" with-sidebar pad-tb-5 gallery_slider">
     <div class="container-fluid">
-        <div class="panel ">
-            <div class="panel-heading">
-                <h3><?php echo translate($video_gal_data['title']); ?></h3>
-                <a style="margin-top:-38px" href="<?php echo base_url();?>home/video_gallery" class="btn_seeMore">
-                   <?php echo translate('see_more'); ?>
+        <div class="panel">
+            <div class="panel-heading" style="border:0px;background-color:white ">
+                <h3> ভিডিও
+                    <!-- <?php echo translate($video_gal_data['title']); ?> -->
+                </h3>
+                <a style="margin-top:-38px" href="< ?php echo base_url();?>home/video_gallery" class="btn_seeMore">
+                   <!-- < ?php echo translate('see_more'); ?> --> আরও দেখুন
                 </a>
             </div>
             <div class="panel-body">
