@@ -143,13 +143,15 @@
     </div>
 </div>
 <!-- /Header top bar -->
+
 <!-- Demo note -->
 <?php if(demo()){ ?>
-    <div class="" style=" text-align: center;">
+    <!-- <div class="" style=" text-align: center;">
         <i class="text-danger blink_me fa fa-exclamation-triangle" style="font-size: 16px"></i>  For demo purpose many operations including deletion, emailing, file uploading are <b>DISABLED</b>
-    </div>
+    </div> -->
 <?php } ?>
 <!-- Demo note end -->
+
 <!-- HEADER -->
 <div class="header1 hidden-sm hidden-xs" id="myHeader">
     <div class="container">
@@ -172,8 +174,8 @@
                             <div class="grid-row">
                                 <ul>
                                     <li><a href="<?php echo base_url(); ?>home/photo_gallery"><i class="fa fa-caret-right"></i>জাতীয়</a></li>
-                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>রাজনৈতিক</a></li>
-                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>অর্থনৈতিক</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>রাজনীতি</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>অর্থনীতি</a></li>
                                     <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>বিশেষ প্রতিবেদন</a></li>
                                 </ul>
                             </div>
@@ -261,33 +263,52 @@
 
                     <li class="<?php if($page_name=='contact'){echo "active";}?>">
                         <a href="<?php echo base_url(); ?>home/contact">
-                            <?php echo translate('contact'); ?>
+                            <?php echo translate('খেলাধুলা'); ?> 
                         </a>
                     </li>
                     <li class="<?php if($page_name=='blog' || $page_name=='blog_list' || $page_name=='blog_detail'){echo "active";}?>">
                         <a href="<?php echo base_url(); ?>home/blog">
-                            <?php echo translate('blog'); ?>
+                            <?php echo translate('শিক্ষা'); ?>
                         </a>
                     </li>
+                    <li class="<?php if($page_name=='blog' || $page_name=='blog_list' || $page_name=='blog_detail'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>home/blog">
+                            <?php echo translate('স্বাস্থ্য'); ?>
+                        </a>
+                    </li>
+
+                    <li class="<?php if($page_name=='blog' || $page_name=='blog_list' || $page_name=='blog_detail'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>home/blog">
+                            <?php echo translate('ধর্ম'); ?>
+                        </a>
+                    </li>
+                    
                     <li class="<?php if($page_name=='blog_photo_gallery' || $page_name=='blog_video_gallery'){echo "active";}?>">
                         <a href="#">
-                            <?php echo translate('blog_media'); ?>
+                            <?php echo translate('মিডিয়া'); ?>
                             <i class="fa fa-caret-down fa-indicator"></i>
-                        </a> <!-- drop down full width -->
+                        </a>
                         <div class="drop-down grid-col-2">
                             <div class="grid-row">
                                 <ul>
-                                    <li><a href="<?php echo base_url(); ?>home/blog_photo_gallery"><i class="fa fa-caret-right"></i><?php echo translate('photo_gallery'); ?></a></li>
-                                    <li><a href="<?php echo base_url(); ?>home/blog_video_gallery"><i class="fa fa-caret-right"></i><?php echo translate('video_gallery'); ?></a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/blog_photo_gallery"><i class="fa fa-caret-right"></i><?php echo translate('ফটো গ্যালারি'); ?></a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/blog_video_gallery"><i class="fa fa-caret-right"></i><?php echo translate('ভিডিও গ্যালারি'); ?></a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li class="<?php if($page_name=='reporters' || $page_name=='bloggers'){echo "active";}?>">
+                    <li class="<?php if($page_name=='contact'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>home/contact">
+                            <?php echo translate('মতামত'); ?> 
+                        </a>
+                    </li>
+
+
+                    <!-- <li class="<?php if($page_name=='reporters' || $page_name=='bloggers'){echo "active";}?>">
                         <a href="#">
                             <?php echo translate('more'); ?>
                             <i class="fa fa-caret-down fa-indicator"></i>
-                        </a> <!-- drop down full width -->
+                        </a>
                         <div class="drop-down grid-col-2">
                             <div class="grid-row">
                                 <ul>
@@ -296,7 +317,8 @@
                                 </ul>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
+
                 </ul>
                 <!-- menu social bar -->
                 <ul class="menu-links signup pull-right">
