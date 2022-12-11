@@ -1,3 +1,15 @@
+<?php
+    $this->db->limit(3);
+    $this->db->order_by('serial_3','desc');
+    $this->db->order_by('news_id','desc');
+    $this->db->where('news_speciality_id',3);
+    $this->db->where_in('news_category_id',[4,5]);
+    $this->db->where('status','published');
+    $detail_news    = $this->db->get('news')->result_array();
+?>
+
+
+
 <section class="page-section pad-tb-5">
     <div class="container-fluid">
     <h3 style="margin-left:10px">খেলাধুলা</h3>
