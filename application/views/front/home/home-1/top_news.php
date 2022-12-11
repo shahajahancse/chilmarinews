@@ -42,6 +42,7 @@
                     </div>
                 </div>
                  <!--after top news content  -->
+                 
                 <div class="row">
                     <?php foreach($top_news as $key=>$row){
                         if($key==0 || $key==1){
@@ -51,12 +52,12 @@
 
                     ?>
                         
-                    <div class="col-lg-4" style="height: 170px;">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <h4 style="margin-left: 11px" class="text-dark"><?php echo $row['title']; ?>...</h4>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="height: 200px;">
+                        <!-- <div class="row"> -->
+                            <div class="col-lg-8 col-xs-8 col-md-8 col-lg-8">
+                                <h4 style="margin-left: 11px" class="text-dark"><?php echo $row['title']; ?></h4>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                 <img class="image_delay" 
                                      style="height: 75px;
                                             width: 107px;
@@ -66,14 +67,15 @@
                                      src="<?php echo img_loading(); ?>" 
                                      data-src="<?php echo $this->Crud_model->file_view('news',$row['news_id'],'','','thumb','src','multi','one');?>" alt="image">
 
-                                <!-- <img style="margin-left: -20px;margin-top: 10px;" height="80px" width="120px" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/fhfg-20221210162220.jpg"> -->
                             </div>
                         
-                            <div class="col-lg-12">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <p style="margin-left:12px"><?php echo word_limiter($row['summary'],8); ?>...</p>
                             </div>
-                        </div>
+                        <!-- </div> -->
+                       
                     </div>
+                   
                     <?php } }?>
                 </div>
 
