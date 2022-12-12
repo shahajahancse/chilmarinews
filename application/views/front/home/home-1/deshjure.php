@@ -1,11 +1,16 @@
 <?php
     $this->db->limit(5);
+    $this->db->select('news_category.name as cat_name,news.*');
+    $this->db->from('news_category');
+    $this->db->where('news.news_category_id = news_category.news_category_id');
+    $this->db->where('news.news_category_id',10);
+
     $this->db->order_by('serial_3','desc');
     $this->db->order_by('news_id','desc');
-    $this->db->where('news_category_id',10);
     $this->db->where('status','published');
     $detail_news    = $this->db->get('news')->result_array();
-    // dd(count($detail_news)); 
+
+    // dd($detail_news); 
 ?>
 
 

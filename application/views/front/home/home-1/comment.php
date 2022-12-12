@@ -2,7 +2,7 @@
 	$this->db->limit(3);
     $this->db->order_by('serial_8','desc');
     $this->db->order_by('news_id','desc');
-	$this->db->where('news_speciality_id',8);
+	$this->db->where('news_category_id',14);
 	$this->db->where('status','published');
 	$detail_news	= $this->db->get('news')->result_array();
 ?>
