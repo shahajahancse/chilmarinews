@@ -19,15 +19,15 @@
 
             <div class="row">
                 <?php foreach ($detail_news as $key => $row) { ?>
-                    <div class="col-lg-4" style="border-right:1px solid #cbcbcb">
+                    <div style="margin-bottom: 15px;" class="col-xs-12 col-md-4 col-lg-4 col-sm-4" style="border-right:1px solid #cbcbcb">
                         <div class="row">    
-                            <div class="col-lg-4 col-sm-6 col-xs-12 ">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
                                 <img style="width: 100px;height: 100px;" class="img img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$row['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $row['title']; ?>">
 
                                 <!-- <img class="img" src="https://slp-statics.astockcdn.net/static_assets/staging/22spring/free/browse-vector-categories-collections/Card4_399895799.jpg" alt="Avatar" > -->
                             </div>
-                            <div class="col-lg-8 col-sm-6 col-xs-12 ">
-                                <p style="font-size:15px"><?php echo $row['title'] ?></p>
+                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                <p style="font-size:15px;margin-top: 10px;"><?php echo $row['title'] ?></p>
                                 <p><?php echo $row['summary'] ?></p>
                             </div>
                         </div>
