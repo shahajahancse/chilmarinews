@@ -37,7 +37,7 @@
                         <?php foreach ($detail_news as $key => $row) { 
 
                             if ($key == 0) {} else {?>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6" style="height: 182px;">
                                 <!-- <img height="120px" width="270px" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/fhfg-20221210162220.jpg"> -->
 
                                 <img  height="120px" width="270px" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$row['news_id'],'','','thumb','src','multi','one');?>" alt="image">
@@ -47,22 +47,6 @@
                             </div>
                         <?php } } ?>
                     </div>
-                        
- 
-                    <!-- <div class="col-lg-6">
-                                <img height="120px" width="270px" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/fhfg-20221210162220.jpg">
-                                <h4>শুরুতেই আউট হয়ে গেলেন এনামুল হক বিজয়</h4>
-                    </div>
-
-                    <div class="col-lg-6">
-                                <img height="120px" width="270px" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/fhfg-20221210162220.jpg">
-                                <h4>শুরুতেই আউট হয়ে গেলেন এনামুল হক বিজয়</h4>
-                    </div>
-
-                    <div class="col-lg-6">
-                                <img height="120px" width="270px" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/fhfg-20221210162220.jpg">
-                                <h4>শুরুতেই আউট হয়ে গেলেন এনামুল হক বিজয়</h4>
-                    </div> -->
 
                    
                 </div>
