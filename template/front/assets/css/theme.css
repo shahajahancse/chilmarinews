@@ -3522,10 +3522,9 @@ input[type=checkbox] {
   background-color: transparent;
   position: relative;
 }
-.thumbnail.hover,
-.thumbnail:hover {
+/* .thumbnail.hover, .thumbnail:hover { */
   /*border: solid 1px #00b16a;*/
-}
+/* } */
 .thumbnail.no-border,
 .thumbnail.no-border.hover,
 .thumbnail.no-border:hover {
@@ -3602,14 +3601,15 @@ input[type=checkbox] {
 /* -------------------------------------------------------------------------- */
 .caption-title {
   font-size: 18px;
-  font-weight: 300;
+  /* font-weight: 300; */
   line-height: 20px;
   margin: 0 0 5px 0;
   color: #232323;
 }
-.caption-title a {
-	font-weight: 600;
-}
+/* .caption-title a {
+	/* font-weight: 600; */
+/* }  */
+
 .caption-title a:hover {
 	text-decoration:underline;
 	transition: all 0.4s ease-in-out;

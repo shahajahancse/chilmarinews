@@ -41,6 +41,256 @@ class Home extends CI_Controller {
         $this->load->view('front/index', $page_data);
     }
 
+    // national section
+    function national() {
+        $page_data['asset_page'] = 'national';
+        $page_data['page_name'] = 'national';
+        $page_data['page_title'] = translate('জাতীয়');
+        $this->load->view('front/index', $page_data);
+    }
+
+    function ajax_national_left_list($para1 = '') {
+        $this->load->library('Ajax_pagination');
+
+        // pagination
+        $config['total_rows'] = $this->db->where('news_category_id',10)->count_all_results('news');
+        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['per_page'] = 12;
+        $config['uri_segment'] = 5;
+        $config['cur_page_giv'] = $para1;
+
+        $function = "filter_news('0')";
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['first_tag_close'] = '</a></li>';
+
+        $rr = ($config['total_rows'] - 1) / $config['per_page'];
+        $last_start = floor($rr) * $config['per_page'];
+        $function = "filter_news('" . $last_start . "')";
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['last_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
+        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['prev_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
+        $config['next_link'] = '&rsaquo;';
+        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['next_tag_close'] = '</a></li>';
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
+        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['num_tag_close'] = '</a></li>';
+        $this->ajax_pagination->initialize($config);
+
+        $page_data['results'] = $this->db->where('news_category_id',10)->get('news', $config['per_page'], $para1)->result_array();
+        // dd($page_data['results']);
+        $page_data['count'] = $config['total_rows'];
+
+        $this->load->view('front/national/ajax_left_list', $page_data);
+    }
+
+    function ajax_national_right_list($para1 = '') {
+        $this->load->library('Ajax_pagination');
+
+        // pagination
+        $config['total_rows'] = $this->db->count_all_results('news');
+        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['per_page'] = 5;
+        $config['uri_segment'] = 5;
+        $config['cur_page_giv'] = $para1;
+
+        $function = "filter_news('0')";
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['first_tag_close'] = '</a></li>';
+
+        $rr = ($config['total_rows'] - 1) / $config['per_page'];
+        $last_start = floor($rr) * $config['per_page'];
+        $function = "filter_news('" . $last_start . "')";
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['last_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
+        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['prev_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
+        $config['next_link'] = '&rsaquo;';
+        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['next_tag_close'] = '</a></li>';
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
+        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['num_tag_close'] = '</a></li>';
+        $this->ajax_pagination->initialize($config);
+
+        $page_data['results'] = $this->db->order_by('news_id', 'DESC')->get('news', $config['per_page'], $para1)->result_array();
+        // dd($page_data['results']);
+        $page_data['count'] = $config['total_rows'];
+
+        $this->load->view('front/national/ajax_right_list', $page_data);
+    }
+
+    function get_national_list() {
+        $this->load->view('front/photo_gallery/photo_list');
+    }
+    // end national
+
+    // photo gallary
+    function photo_gallery() {
+        $page_data['asset_page'] = 'photo_gallery';
+        $page_data['page_name'] = 'photo_gallery';
+        $page_data['page_title'] = translate('photo_gallery');
+        $this->load->view('front/index', $page_data);
+    }
+
+    function get_photo_list() {
+        $this->load->view('front/photo_gallery/photo_list');
+    }
+
+    function ajax_photo_list($para1 = '') {
+        $this->load->library('Ajax_pagination');
+
+        // pagination
+        $this->db->where('status', 'published');
+        $config['total_rows'] = $this->db->count_all_results('photo');
+        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['per_page'] = 12;
+        $config['uri_segment'] = 5;
+        $config['cur_page_giv'] = $para1;
+
+        $function = "filter_news('0')";
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['first_tag_close'] = '</a></li>';
+
+        $rr = ($config['total_rows'] - 1) / $config['per_page'];
+        $last_start = floor($rr) * $config['per_page'];
+        $function = "filter_news('" . $last_start . "')";
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['last_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
+        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['prev_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
+        $config['next_link'] = '&rsaquo;';
+        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['next_tag_close'] = '</a></li>';
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
+        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['num_tag_close'] = '</a></li>';
+        $this->ajax_pagination->initialize($config);
+
+        $this->db->where('status', 'published');
+        $this->db->order_by('photo_id','desc');
+        $page_data['photos'] = $this->db->get('photo', $config['per_page'], $para1)->result_array();
+        $page_data['count'] = $config['total_rows'];
+
+        $this->load->view('front/photo_gallery/ajax_list', $page_data);
+    }
+    // end photo gallary
+
+    // video gallary
+    function video_gallery($para1 = '') {
+        $page_data['asset_page'] = 'video_gallery';
+        $page_data['page_name'] = 'video_gallery';
+        $page_data['type'] = $para1;
+        $page_data['page_title'] = translate('video_gallery');
+
+        $this->load->view('front/index', $page_data);
+    }
+
+    function get_video_list($para1 = '') {
+        $page_data['source'] = $para1;
+        $this->load->view('front/video_gallery/video_list', $page_data);
+    }
+
+    function ajax_video_list($para1 = '') {
+        $this->load->library('Ajax_pagination');
+        $source = $this->input->post('source');
+        if ($source !== 'all') {
+            $this->db->where('from', $source);
+        }
+        // pagination
+        $this->db->where('status', 'published');
+        $config['total_rows'] = $this->db->count_all_results('video');
+        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['per_page'] = 9;
+        $config['uri_segment'] = 5;
+        $config['cur_page_giv'] = $para1;
+
+        $function = "filter_news('0')";
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['first_tag_close'] = '</a></li>';
+
+        $rr = ($config['total_rows'] - 1) / $config['per_page'];
+        $last_start = floor($rr) * $config['per_page'];
+        $function = "filter_news('" . $last_start . "')";
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['last_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
+        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['prev_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
+        $config['next_link'] = '&rsaquo;';
+        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['next_tag_close'] = '</a></li>';
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
+        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['num_tag_close'] = '</a></li>';
+        $this->ajax_pagination->initialize($config);
+
+        if ($source !== 'all') {
+            $this->db->where('from', $source);
+        }
+        $this->db->where('status', 'published');
+        $page_data['videos'] = $this->db->get('video', $config['per_page'], $para1)->result_array();
+        $page_data['count'] = $config['total_rows'];
+
+        $this->load->view('front/video_gallery/ajax_list', $page_data);
+    }
+    // end video gallary
+
+
+
+
     function news($para1 = '', $para2 = '', $para3 = '', $para4 = '', $para5 = '') {
         $page_data['news_category']     = $para1;
         $page_data['news_sub_category'] = $para2;
@@ -658,7 +908,7 @@ class Home extends CI_Controller {
     }
 
 
-function archive_news($para1 = '', $para2 = '', $para3 = '', $para4 = '', $para5 = '') {
+    function archive_news($para1 = '', $para2 = '', $para3 = '', $para4 = '', $para5 = '') {
         $page_data['news_category'] = $para1;
         $page_data['news_sub_category'] = $para2;
         if (isset($para3)) {
@@ -684,7 +934,7 @@ function archive_news($para1 = '', $para2 = '', $para3 = '', $para4 = '', $para5
         $this->load->view('front/archive_news/date_search', $page_data);
     }
 
-function archive_ajax_news_list($para1 = '') {
+    function archive_ajax_news_list($para1 = '') {
         $this->load->library('Ajax_pagination');
 
         $all_result = array();
@@ -932,138 +1182,6 @@ function archive_ajax_news_list($para1 = '') {
         $page_data['page_name'] = 'reporter_description';
         $page_data['page_title'] = $reporter_data->row()->name;
         $this->load->view('front/index', $page_data);
-    }
-
-    function photo_gallery() {
-        $page_data['asset_page'] = 'photo_gallery';
-        $page_data['page_name'] = 'photo_gallery';
-        $page_data['page_title'] = translate('photo_gallery');
-        $this->load->view('front/index', $page_data);
-    }
-
-    function get_photo_list() {
-        $this->load->view('front/photo_gallery/photo_list');
-    }
-
-    function ajax_photo_list($para1 = '') {
-        $this->load->library('Ajax_pagination');
-
-        // pagination
-        $this->db->where('status', 'published');
-        $config['total_rows'] = $this->db->count_all_results('photo');
-        $config['base_url'] = base_url() . 'index.php?home/listed/';
-        $config['per_page'] = 12;
-        $config['uri_segment'] = 5;
-        $config['cur_page_giv'] = $para1;
-
-        $function = "filter_news('0')";
-        $config['first_link'] = '&laquo;';
-        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['first_tag_close'] = '</a></li>';
-
-        $rr = ($config['total_rows'] - 1) / $config['per_page'];
-        $last_start = floor($rr) * $config['per_page'];
-        $function = "filter_news('" . $last_start . "')";
-        $config['last_link'] = '&raquo;';
-        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['last_tag_close'] = '</a></li>';
-
-        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
-        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['prev_tag_close'] = '</a></li>';
-
-        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
-        $config['next_link'] = '&rsaquo;';
-        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['next_tag_close'] = '</a></li>';
-
-        $config['full_tag_open'] = '<ul class="pagination">';
-        $config['full_tag_close'] = '</ul>';
-
-        $config['cur_tag_open'] = '<li class="active"><a>';
-        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
-
-        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
-        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['num_tag_close'] = '</a></li>';
-        $this->ajax_pagination->initialize($config);
-
-        $this->db->where('status', 'published');
-        $this->db->order_by('photo_id','desc');
-        $page_data['photos'] = $this->db->get('photo', $config['per_page'], $para1)->result_array();
-        $page_data['count'] = $config['total_rows'];
-
-        $this->load->view('front/photo_gallery/ajax_list', $page_data);
-    }
-
-    function video_gallery($para1 = '') {
-        $page_data['asset_page'] = 'video_gallery';
-        $page_data['page_name'] = 'video_gallery';
-        $page_data['type'] = $para1;
-        $page_data['page_title'] = translate('video_gallery');
-
-        $this->load->view('front/index', $page_data);
-    }
-
-    function get_video_list($para1 = '') {
-        $page_data['source'] = $para1;
-        $this->load->view('front/video_gallery/video_list', $page_data);
-    }
-
-    function ajax_video_list($para1 = '') {
-        $this->load->library('Ajax_pagination');
-        $source = $this->input->post('source');
-        if ($source !== 'all') {
-            $this->db->where('from', $source);
-        }
-        // pagination
-        $this->db->where('status', 'published');
-        $config['total_rows'] = $this->db->count_all_results('video');
-        $config['base_url'] = base_url() . 'index.php?home/listed/';
-        $config['per_page'] = 9;
-        $config['uri_segment'] = 5;
-        $config['cur_page_giv'] = $para1;
-
-        $function = "filter_news('0')";
-        $config['first_link'] = '&laquo;';
-        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['first_tag_close'] = '</a></li>';
-
-        $rr = ($config['total_rows'] - 1) / $config['per_page'];
-        $last_start = floor($rr) * $config['per_page'];
-        $function = "filter_news('" . $last_start . "')";
-        $config['last_link'] = '&raquo;';
-        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['last_tag_close'] = '</a></li>';
-
-        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
-        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['prev_tag_close'] = '</a></li>';
-
-        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
-        $config['next_link'] = '&rsaquo;';
-        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['next_tag_close'] = '</a></li>';
-
-        $config['full_tag_open'] = '<ul class="pagination">';
-        $config['full_tag_close'] = '</ul>';
-
-        $config['cur_tag_open'] = '<li class="active"><a>';
-        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
-
-        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
-        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
-        $config['num_tag_close'] = '</a></li>';
-        $this->ajax_pagination->initialize($config);
-
-        if ($source !== 'all') {
-            $this->db->where('from', $source);
-        }
-        $this->db->where('status', 'published');
-        $page_data['videos'] = $this->db->get('video', $config['per_page'], $para1)->result_array();
-        $page_data['count'] = $config['total_rows'];
-
-        $this->load->view('front/video_gallery/ajax_list', $page_data);
     }
 
     function reporters() {

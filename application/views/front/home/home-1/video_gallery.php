@@ -4,60 +4,100 @@
 	$this->db->where('status','published');
 	$videos	= $this->db->get('video')->result_array();
 ?>
-<section class="page-section with-sidebar pad-tb-5 gallery_slider">
-    <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <?php echo translate($video_gal_data['title']); ?>
-                <a href="<?php echo base_url();?>home/video_gallery" class="btn_seeMore">
-                    <?php echo translate('see_more'); ?>
+<section class=" with-sidebar pad-tb-5 gallery_slider">
+    <div class="container-fluid">
+        <div class="panel">
+            <div class="panel-heading" style="border:0px;background-color:white ">
+                <h3> ভিডিও
+                    <!-- <?php echo translate($video_gal_data['title']); ?> -->
+                </h3>
+                <a style="margin-top:-38px" href="< ?php echo base_url();?>home/video_gallery" class="btn_seeMore">
+                   <!-- < ?php echo translate('see_more'); ?> --> আরও দেখুন
                 </a>
             </div>
             <div class="panel-body">
                 <div class="row mar-lr--5 mar-t-0 parent">
-                    <div class="col-md-6 pad-lr-5 mar-t-0 <?php if($video_gal_data['style']==2){ echo 'pull-md-right'; }?>">
+                    <div class="col-md-12 pad-lr-5 mar-t-0 <?php if($video_gal_data['style']==2){ echo 'pull-md-left'; }?>">
                         <div class="row mar-lr--5 mar-t-0">
-                            <div class="col-sm-6 pad-lr-5 mar-t-0">
+                            
+                            <div class="col-sm-3 pad-lr-5 mar-t-0">
                                 <?php
                                     if(isset($videos[1])){
                                         echo $this->Html_model->video_box('3',$videos[1]);
                                     }
                                 ?>
                             </div>
-                            <div class="col-sm-6 pad-lr-5 mar-t-0">
+                            
+                            <div class="col-sm-3 pad-lr-5 mar-t-0">
                                 <?php
                                     if(isset($videos[2])){
-                                        echo $this->Html_model->video_box('3',$videos[2]);
+                                        echo $this->Html_model->video_box('3',$videos[0]);
                                     }
                                 ?>
                             </div>
-                            <div class="col-sm-6 mar-t-5 pad-lr-5">
+                           
+                            <div class="col-sm-3 mar-t-5 pad-lr-5">
                                 <?php
                                     if(isset($videos[3])){
                                         echo $this->Html_model->video_box('3',$videos[3]);
                                     }
                                 ?>
                             </div>
-                            <div class="col-sm-6 mar-t-5 pad-lr-5">
+                            
+                            <div class="col-sm-3 mar-t-5 pad-lr-5">
                                 <?php
                                     if(isset($videos[4])){
                                         echo $this->Html_model->video_box('3',$videos[4]);
                                     }
                                 ?>
                             </div>
+
+
+                            <div class="col-sm-3 pad-lr-5 mar-t-0">
+                                <?php
+                                    if(isset($videos[1])){
+                                        echo $this->Html_model->video_box('3',$videos[0]);
+                                    }
+                                ?>
+                            </div>
+                            
+                            <div class="col-sm-3 pad-lr-5 mar-t-0">
+                                <?php
+                                    if(isset($videos[2])){
+                                        echo $this->Html_model->video_box('3',$videos[1]);
+                                    }
+                                ?>
+                            </div>
+                           
+                            <div class="col-sm-3 mar-t-5 pad-lr-5">
+                                <?php
+                                    if(isset($videos[3])){
+                                        echo $this->Html_model->video_box('3',$videos[3]);
+                                    }
+                                ?>
+                            </div>
+                            
+                            <div class="col-sm-3 mar-t-5 pad-lr-5">
+                                <?php
+                                    if(isset($videos[4])){
+                                        echo $this->Html_model->video_box('3',$videos[4]);
+                                    }
+                                ?>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="col-md-6 pad-lr-5 mar-t-0">
+                    <!-- <div class="col-md-6 pad-lr-5 mar-t-0">
                         <div class="row mar-lr--5 mar-t-0">
                             <div class="col-md-12 pad-lr-5 mar-t-0">
-                                <?php
+                                < ?php
                                     if(isset($videos[0])){
                                         echo $this->Html_model->video_box('2',$videos[0]);
                                     }
                                 ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <?php
-	$scrolling_news = json_decode($this->Crud_model->get_settings_value('ui_settings','scrolling_news','value'),true);
+	// $scrolling_news = json_decode($this->Crud_model->get_settings_value('ui_settings','scrolling_news','value'),true);
 ?>
 <?php
 	if($scrolling_news['status']=='ok'){

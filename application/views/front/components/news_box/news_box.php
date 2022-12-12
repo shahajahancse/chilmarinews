@@ -1,4 +1,4 @@
-<div class="thumbnail news_box_sqr_1">
+<div class="thumbnail news_box_sqr_1 ">
     <div class="row">
         <div class="col-md-12">
             <div class="media">
@@ -8,7 +8,7 @@
                         foreach($img as $row){
                             if($row['index'] == 0){
                     ?>
-                        <img class="img-thumbnail image_delay" style="height:260px;" src="<?php echo img_loading(); ?>" data-src="<?php echo base_url();?>uploads/news_image/<?php echo $row['thumb'];?>" alt=""/>
+                        <img class="img-thumbnail image_delay" style="height:260px;" src="<?php echo img_loading(); ?>" data-src="<?php echo base_url();?>uploads/news_image/<?php echo $row['thumb'];?>" alt="new"/>
                     <?php }}?>
                 </span> 
             </div>

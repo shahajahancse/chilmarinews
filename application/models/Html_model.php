@@ -48,6 +48,12 @@ class Html_model extends CI_Model
 
     }
 
+    function national_box($style = '',$data = array())
+    {
+        $this->load->view('front/components/national_box/national_box_'.$style,$data);
+
+    }
+
     function blogger_box($style = '',$data = array())
     {
         $this->load->view('front/components/blogger_box/blogger_box_'.$style,$data);

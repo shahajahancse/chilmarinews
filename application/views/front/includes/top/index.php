@@ -40,7 +40,9 @@
 <meta property="og:image" content="<?php echo $image; ?>" />
 <meta property="og:description" content="<?php echo str_replace('"',"'",strip_tags($description)); ?>" />
 <meta property="og:site_name" content="<?php echo $page_title; ?> || <?php echo $system_title; ?>" />
-
+<style>
+	a{text-decoration:none;}
+</style>	
 <!-- Google Analytics -->
     <script>
 	    <?php $g_set = $this->db->get_where('general_settings',array('type'=>'google_analytics_set'))->row()->value;
