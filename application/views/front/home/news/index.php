@@ -1,6 +1,6 @@
 <!-- CONTENT AREA -->
 <?php
-    
+    // dd($page_title);
     $discus_id = $this->db->get_where('third_party_settings', array('type' => 'discus_id'))->row()->value;
     $fb_id = $this->db->get_where('third_party_settings', array('type' => 'fb_comment_api'))->row()->value;
     $comment_type = $this->db->get_where('third_party_settings', array('type' => 'comment_type'))->row()->value;
@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row mar-lr--5">
                 <!-- SIDEBAR -->
-                <?php include 'sidebar.php'; ?>
+                <!-- < ?php include 'sidebar.php'; ?> -->
                 <!-- /SIDEBAR -->
                 <!-- CONTENT -->
                 <div class="col-md-9 pad-lr-5 content" id="content">
@@ -21,8 +21,8 @@
                     </span>
                     <!-- Blog post -->
                     <?php
-                    foreach ($news_description as $rows) {
-                        $img = json_decode($rows['img_features'], true);
+                    // foreach ($news_description as $rows) {
+                        $img = json_decode($result->img_features, true);
                         $i = sizeof($img);
                     ?>
                         <ol class="hidden-sm hidden-xs breadcrumb breadcrumb-custom">
@@ -32,16 +32,18 @@
                                 </a>
                             </li>
                             <li class="active">
-                                <a href="<?php echo base_url(); ?>home/news/<?php echo $rows['news_category_id']; ?>/0">
-                                    <?php echo $this->Crud_model->get_type_name_by_id('news_category', $rows['news_category_id']); ?>
+                                <a href="<?php echo base_url(); ?>home/news/<?php echo $result->news_category_id; ?>/0">
+                                    <?php echo  $page_title; ?>
+                                    <!-- < ?php echo $this->Crud_model->get_type_name_by_id('news_category', $result->news_category_id); ?> -->
                                 </a>
                             </li>
                             <?php
                             if ($rows['news_sub_category_id'] !== '0') {
                                 ?>
                                 <li class="active">
-                                    <a href="<?php echo base_url(); ?>home/news/<?php echo $rows['news_category_id']; ?>/<?php echo $rows['news_sub_category_id']; ?>">
-                                        <?php echo $this->Crud_model->get_type_name_by_id('news_sub_category', $rows['news_sub_category_id']); ?>
+                                    <a href="<?php echo base_url(); ?>home/news/<?php echo $result->news_category_id; ?>/<?php echo $rows['news_sub_category_id']; ?>">
+                                    <?php echo  $result->title; ?>    
+                                    <!-- < ?php echo $this->Crud_model->get_type_name_by_id('news_sub_category', $rows['news_sub_category_id']); ?> -->
                                     </a>
                                 </li>
                                 <?php
@@ -51,27 +53,27 @@
                         <article class="post-wrap post-single box_shadow mar-lr-0 mar-t-10">
                             <div class="post-header">
                                 <h2 class="post-title">
-                                    <?php echo $rows['title']; ?>
+                                    <?php echo $result->title ?>
                                 </h2>
                                 <div class="post-meta to_show">
                                     <span> <?php if($news_mood == "news"){ ?>
-                                        <a href="<?php echo base_url(); ?>home/news/0/0/<?php echo date("Y-m-d", $rows['date']); ?>/<?php echo date("Y-m-d", $rows['date']); ?>">
+                                        <a href="<?php echo base_url(); ?>home/news/0/0/<?php echo date("Y-m-d", $result->created_post); ?>/<?php echo date("Y-m-d", $rows['date']); ?>">
                                             <i class="fa fa-clock-o"></i>
-                                            <?php echo date("F j, Y", $rows['date']); ?>
+                                            <?php echo date("d M Y", strtotime($result->created_post)); ?>
                                         </a>
                                         <?php }else{ ?>
-                                        <a href="<?php echo base_url(); ?>home/archive_news/0/0/<?php echo date("Y-m-d", $rows['date']); ?>/<?php echo date("Y-m-d", $rows['date']); ?>">
+                                        <a href="<?php echo base_url(); ?>home/archive_news/0/0/<?php echo date("Y-m-d", $result->created_post); ?>/<?php echo date("Y-m-d", $rows['date']); ?>">
                                             <i class="fa fa-clock-o"></i>
-                                            <?php echo date("F j, Y", $rows['date']); ?>
+                                            <?php echo date("d M Y", strtotime($result->created_post)); ?>
                                         </a>
                                         <?php } ?>
                                     </span>
                                     <span class="divider">|</span>
                                     <span>
-                                        <?php echo translate('reported_by'); ?> :
-                                        <a href="<?php echo $this->Crud_model->reporter_link($rows['news_reporter_id']); ?>">
-                                            <?php echo $this->Crud_model->get_type_name_by_id('news_reporter', $rows['news_reporter_id']); ?>
-                                        </a>
+                                        <!-- < ?php echo translate('reported_by'); ?> : -->
+                                        <!-- <a href="< ?php echo $this->Crud_model->reporter_link($rows['news_reporter_id']); ?>"> -->
+                                            <!-- < ?php echo $this->Crud_model->get_type_name_by_id('news_reporter', $rows['news_reporter_id']); ?> -->
+                                        <!-- </a> -->
                                     </span>
                                 </div>
                                 <div class="post-meta print" style="display:none;">
@@ -148,14 +150,14 @@
                             <div class="post-body">
                                 <div class="post-excerpt">
                                     <p class="text-summary">
-                                        <?php echo $rows['summary']; ?>
+                                        <?php echo $result->summary; ?>
                                     </p>
                                 </div>
                             </div>
                             <div class="post-body">
                                 <div class="post-excerpt">
                                     <p class="text-description">
-                                        <?php echo $rows['description']; ?>
+                                        <?php echo $result->description; ?>
                                     </p>
                                 </div>
                             </div>
@@ -214,7 +216,7 @@
 
                                 <?php
                             }
-                        }
+                        // }
                         ?>
 
                     </section>
