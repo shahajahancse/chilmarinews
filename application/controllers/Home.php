@@ -41,6 +41,20 @@ class Home extends CI_Controller {
         $this->load->view('front/index', $page_data);
     }
 
+    public function detail_news($cat_name = null, $id = null)
+    {
+        $id = base64_decode($id);
+        $result = $this->db->where('news_id',$id)->get('news')->row();
+        $cat_name = $this->db->where('news_category_id',$result->news_category_id)->get('news_category')->row()->name_bn;
+
+        $page_data['result'] = $result;
+        $page_data['asset_page'] = $cat_name;
+        $page_data['page_name'] = 'news_description';
+        $page_data['page_title'] = translate($cat_name);
+        $page_data['page_meta'] = $this->get_page_meta();
+        $this->load->view('front/index', $page_data);
+    }
+
     // national section
     function national() {
         $page_data['asset_page'] = 'national';
