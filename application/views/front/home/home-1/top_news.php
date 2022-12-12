@@ -24,20 +24,23 @@
 
                         <div class="col-lg-4" > 
                             <div class="row">
-                                <h3 ><?php echo $top_news[0]['title']; ?></h3>
+                                <h3 class="text-dark" style="margin: 0px;line-height: 1.4;"><?php echo $top_news[0]['title']; ?></h3>
                             </div>
                             <div class="row">
-                                <p><?php echo word_limiter($top_news[0]['summary'],20); ?>...</p>
+                                <p style="text-align: justify;"><?php echo word_limiter($top_news[0]['summary'],20); ?>...</p>
                             </div>
                         </div>
                     </div>
                       
                     <div class="col-lg-3">
                         <div class="col-lg-12">
-
-                            <img style="width: 100% !important" class="img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$top_news[1]['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $top_news[1]['title']; ?>">
-
-                            <h4><?php echo $top_news[1]['title']; ?></h4>
+                            <img style="width: 100% !important" 
+                                 class="img-responsive image_delay" 
+                                 src="<?php echo img_loading(); ?>"
+                                 data-src="<?php echo $this->Crud_model->file_view('news',$top_news[1]['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $top_news[1]['title']; ?>">
+                            <h4 class="text-dark">
+                                <?php echo $top_news[1]['title']; ?>
+                            </h4>
                         </div>
                     </div>
                 </div>
