@@ -11,29 +11,27 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-md-12 col-lg-9">
                 <div class="row">
                     <!-- top news -->
-                    <div class="col-lg-9">
-                        <div class="col-lg-8" >
-
+                    <div class="col-sm-6 col-md-8 col-lg-9 ">
+                        <div class="col-md-8 col-lg-8" >
                             <img style="width: 100% !important;height:200px" class="img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$top_news[0]['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $top_news[0]['title']; ?>">
-
                             <p> <!-- image description here --> </p>
                         </div>
 
-                        <div class="col-lg-4" > 
+                        <div class="col-md-4 col-lg-4" > 
                             <div class="row">
-                                <h3 class="text-dark" style="margin: 0px;line-height: 1.4;"><?php echo $top_news[0]['title']; ?></h3>
+                                <h3 class="text-dark col-xs-12" style="margin: 0px;line-height: 1.4;"><?php echo $top_news[0]['title']; ?></h3>
                             </div>
                             <div class="row">
-                                <p style="text-align: justify;"><?php echo word_limiter($top_news[0]['summary'],20); ?>...</p>
+                                <p class="col-xs-12" style="text-align: justify;"><?php echo word_limiter($top_news[0]['summary'],20); ?>...</p>
                             </div>
                         </div>
                     </div>
                       
-                    <div class="col-lg-3">
-                        <div class="col-lg-12">
+                    <div class="col-sm-6  col-md-4 col-lg-3">
+                        <div class="col-lg-12 col-md-12">
                             <img style="width: 100% !important" 
                                  class="img-responsive image_delay" 
                                  src="<?php echo img_loading(); ?>"
@@ -44,6 +42,8 @@
                         </div>
                     </div>
                 </div>
+
+
                  <!--after top news content  -->
                 <div class="row">
                     <?php foreach($top_news as $key=>$row){
@@ -84,24 +84,24 @@
 
             <!-- right side column  -->
 
-            <div class="col-lg-3">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <img style="margin-left: 20px;"  height="130px" width="260px" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/fhfg-20221210162220.jpg">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                <!-- <div class="row"> -->
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-12">
+                        <img style="margin-left: 20px;margin-bottom:10px"  height="130px" width="260px" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/fhfg-20221210162220.jpg">
                     </div>
-                </div>
+                <!-- </div> -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <img style="margin-left: 20px; margin-top:10px;margin-bottom:10px"  height="130px" width="260px" src="https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509__340.jpg">
+                <!-- <div class="row"> -->
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-12">
+                        <img style="margin-left: 20px;margin-bottom:10px"  height="130px" width="260px" src="https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509__340.jpg">
                     </div>
-                </div>
+                <!-- </div> -->
 
-                <div class="row">
-                    <div class="col-lg-12">
+                <!-- <div class="row"> -->
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-12">
                         <img style="margin-left: 20px;"  height="130px" width="260px" src="https://cdn.pixabay.com/photo/2018/05/17/09/18/away-3408119__340.jpg">
                     </div>
-                </div>
+                <!-- </div> -->
 
             </div>
 
