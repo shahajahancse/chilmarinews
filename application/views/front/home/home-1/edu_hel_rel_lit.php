@@ -1,3 +1,18 @@
+<?php
+    $this->db->limit(7);
+    $this->db->select('news_category.name as cat_name,news.*');
+    $this->db->from('news_category');
+    $this->db->where('news.news_category_id = news_category.news_category_id');
+    $this->db->where('news.news_category_id',10);
+
+    $this->db->order_by('serial_3','desc');
+    $this->db->order_by('news_id','desc');
+    $this->db->where('status','published');
+    $detail_news    = $this->db->get('news')->result_array();
+    // dd(count($detail_news)); 
+?>
+
+
 <section class="page-section pad-tb-5" style="margin-top:30px">
     <div class="container-fluid">
         <!-- <h3 style="margin-left:10px">খেলাধুলা</h3> -->

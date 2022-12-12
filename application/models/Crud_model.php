@@ -69,6 +69,11 @@
         }
 
         //GET PRODUCT LINK
+        function link_news($cat_name, $news_id = '') {
+           return base_url() .'home/detail_news/'.url_title($cat_name).'/'.base64_encode($news_id);
+        }
+
+        //GET PRODUCT LINK
         function news_link($news_id, $quick = '') {
             if ($quick == 'quick') {
                 return base_url() . 'home/news_description/' . $news_id;
