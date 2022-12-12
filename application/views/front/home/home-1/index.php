@@ -79,7 +79,7 @@ $home_cat_data = json_decode($this->Crud_model->get_settings_value('ui_settings'
     <!-- বিশেষ প্রতিবেদন -->
     <?php
 		if($special_category_data['status']=='ok'){
-			include 'special_category.php';
+			include 'special_report.php';
 		}
 	?>
     <!-- ফটো গ্যালারি-->

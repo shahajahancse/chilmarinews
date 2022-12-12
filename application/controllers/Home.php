@@ -50,7 +50,7 @@ class Home extends CI_Controller {
         $page_data['result'] = $result;
         $page_data['asset_page'] = $cat_name;
         $page_data['page_name'] = 'news_description';
-        $page_data['page_title'] = translate($cat_name);
+        $page_data['page_title'] = $cat_name;
         $page_data['page_meta'] = $this->get_page_meta();
         $this->load->view('front/index', $page_data);
     }
