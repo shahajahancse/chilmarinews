@@ -7,7 +7,6 @@
     <section class="page-section with-sidebar pad-t-15">
         <div class="container-fluid">
             <div class="row mar-lr--5">
-                <?php include 'sidebar.php';?>
                 <!-- CONTENT -->
                 <div class="col-md-9 content pad-lr-5" id="content">
                     <span class="btn btn-theme-transparent pull-left hidden-lg hidden-md" style="position:relative; z-index:100;padding: 5px 12px; border-radius:4px;width: 100%; margin-bottom: 15px;" onClick="open_sidebar();">
@@ -28,7 +27,7 @@
                     <div id="result">
                     </div>
                     <!-- /advertisement space -->
-                    <div class="advertise_space2">
+                    <!-- <div class="advertise_space2">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <?php echo $this->Html_model->advertise_rect('video_gallery_2'); ?>
@@ -37,13 +36,14 @@
                                 <?php echo $this->Html_model->advertise_rect('video_gallery_3'); ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /advertisement space -->
                     <?php
 						echo $this->Html_model->bottom_part($videos_page['page_bottom']);
 					?>
                 </div>
                 <!-- /CONTENT -->
+                <?php include 'sidebar.php';?>
             </div>
         </div>
     </section>

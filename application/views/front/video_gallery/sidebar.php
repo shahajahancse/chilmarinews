@@ -33,13 +33,13 @@
                 </div>
             </div>
             <!-- /advertisement space -->
-            <div class="advertise_space1" style="margin-top:15px;">
+            <!-- <div class="advertise_space1" style="margin-top:15px;">
                 <div class="row">
                     <div class="col-md-12">
                     	<?php echo $this->Html_model->advertise_sqr('video_gallery_1'); ?>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- /advertisement space -->
             <?php
 				$widgets = $videos_page['widgets'];
