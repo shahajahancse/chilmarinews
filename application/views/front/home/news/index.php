@@ -103,7 +103,10 @@
                                 </div>
                             </div>
                             <div class="post-media">
-                                <?php
+                                <span onClick="image_modal('<?php echo base_url(); ?>uploads/news_image/<?php echo $img[0]['img']; ?>');">
+                                    <img class="img-thumbnail img-responsive cursorPointer image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo base_url(); ?>uploads/news_image/<?php echo $img[0]['img']; ?>"  />
+                                </span>
+                               <!--  <?php
                                 if ($i > 1) {
                                     ?>
                                     <div class="owl-carousel img-carousel">
@@ -139,7 +142,7 @@
                                         </span>
                                         <?php
                                 }
-                                ?>
+                                ?> -->
                             </div>
                             <div class="post-control">
                                 <div class="visitor">

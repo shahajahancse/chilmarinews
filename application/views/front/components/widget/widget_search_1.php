@@ -1,4 +1,4 @@
-<div class="widget_box advance_search">
+<!-- <div class="widget_box advance_search">
 
     <?php
         echo form_open(base_url() . 'home/widget_search/', array(
@@ -84,4 +84,4 @@ $('#advance_search_btn').on('click',function(e){
 		//location.replace('<?php echo base_url(); ?>home/news/'+category+'/'+sub_category+'/'+start_date+'/'+end_date+'/'+text_search);
 	},500);
 });
-</script>
+</script> -->

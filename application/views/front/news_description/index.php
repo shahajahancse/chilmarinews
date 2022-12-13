@@ -87,7 +87,10 @@
                                 </div>
                             </div>
                             <div class="post-media">
-                                <?php
+                                <span onClick="image_modal('<?php echo base_url(); ?>uploads/news_image/<?php echo $img[0]['img']; ?>');">
+                                    <img class="img-thumbnail img-responsive cursorPointer image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo base_url(); ?>uploads/news_image/<?php echo $img[0]['img']; ?>"  />
+                                </span>
+                               <!--  <?php
                                 if ($i > 1) {
                                     ?>
                                     <div class="owl-carousel img-carousel">
@@ -123,7 +126,7 @@
                                         </span>
                                         <?php
                                 }
-                                ?>
+                                ?> -->
                             </div>
                             <div class="post-control">
                                 <div class="visitor">
@@ -220,7 +223,7 @@
                     </section>
                     <!-- /PAGE -->
                     <!-- /advertisement space -->
-                    <div class="advertise_space2">
+                    <!-- <div class="advertise_space2">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pad-t-15">
                                 <?php echo $this->Html_model->advertise_rect('news_description_2'); ?>
@@ -229,7 +232,7 @@
                                 <?php echo $this->Html_model->advertise_rect('news_description_3'); ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /advertisement space -->
                     <div class="bottom_part">
                         <?php

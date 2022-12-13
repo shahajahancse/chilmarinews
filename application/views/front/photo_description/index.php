@@ -28,12 +28,15 @@
                             </h2>
                         </div>
                         <div class="post-media">
-                        	<?php 
+                            <span onClick="image_modal('<?php echo $this->Crud_model->file_view('photo',$rows['photo_id'],'','','no','src','multi','one');?>');">
+                                <img class="img-thumbnail img-responsive cursorPointer image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('photo',$rows['photo_id'],'','','no','src','multi','one');?>"  />
+                            </span>
+                        	<!-- <?php 
 								if($i > 1 ){
 							?>
                             <div class="owl-carousel img-carousel">
                                 <?php 
-									//$images = $this->Crud_model->file_view('photo',$rows['photo_id'],'','','no','src','multi','all');
+									$images = $this->Crud_model->file_view('photo',$rows['photo_id'],'','','no','src','multi','all');
                                     foreach($img as $row){
                                 ?>
                                     <div class="item">
@@ -66,7 +69,7 @@
                             </span>
 							<?php
 								}
-							?>
+							?> -->
                         </div>
                         <div class="post-body">
                             <div class="post-excerpt">
@@ -84,7 +87,7 @@
 						}
 					?>
                     <!-- /advertisement space -->
-                    <div class="advertise_space2">
+                    <!-- <div class="advertise_space2">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <?php echo $this->Html_model->advertise_rect('photo_description_2'); ?>
@@ -93,7 +96,7 @@
                                 <?php echo $this->Html_model->advertise_rect('photo_description_3'); ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /advertisement space -->
                     <?php
 						echo $this->Html_model->bottom_part($photo_detail_page['page_bottom']);

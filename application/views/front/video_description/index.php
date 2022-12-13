@@ -52,7 +52,7 @@
 						}
 					?>
                     <!-- /advertisement space -->
-                    <div class="advertise_space2">
+                    <!-- <div class="advertise_space2">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <?php echo $this->Html_model->advertise_rect('video_description_2'); ?>
@@ -61,7 +61,7 @@
                                 <?php echo $this->Html_model->advertise_rect('video_description_3'); ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /advertisement space -->
                     <?php
 						echo $this->Html_model->bottom_part($video_detail_page['page_bottom']);

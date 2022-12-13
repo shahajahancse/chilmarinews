@@ -1,11 +1,15 @@
 <?php
     $this->db->limit(11);
+    $this->db->select('news_category.name as cat_name,news.*');
+    $this->db->from('news_category');
+    $this->db->where('news.news_category_id = news_category.news_category_id');
+
     $this->db->order_by('serial_3','desc');
     $this->db->order_by('news_id','desc');
     $this->db->where('news_speciality_id',3);
     $this->db->where('status','published');
     $top_news	= $this->db->get('news')->result_array();
-    // dd($top_news[0]);
+    // dd(base64_decode('OTg='));
 ?>
 <section class="page-section pad-tb-5">
     <div class="container-fluid">
@@ -14,6 +18,7 @@
             <div class="col-md-12 col-lg-9">
                 <div class="row">
                     <!-- top news -->
+                    <a href="<?php echo $this->Crud_model->link_news($top_news[0]['cat_name'], $top_news[0]['news_id']);?>">
                     <div class="col-sm-6 col-md-8 col-lg-9 ">
                         <div class="col-md-8 col-lg-8" >
                             <img style="width: 100% !important;height:200px" class="img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$top_news[0]['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $top_news[0]['title']; ?>">
@@ -29,8 +34,10 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                       
                     <div class="col-sm-6  col-md-4 col-lg-3">
+                        <a href="<?php echo $this->Crud_model->link_news($top_news[1]['cat_name'], $top_news[1]['news_id']);?>">
                         <div class="col-lg-12 col-md-12">
                             <img style="width: 100% !important" 
                                  class="img-responsive image_delay" 
@@ -40,6 +47,7 @@
                                 <?php echo $top_news[1]['title']; ?>
                             </h4>
                         </div>
+                        </a>
                     </div>
                 </div>
 
@@ -55,6 +63,7 @@
                     ?>
                         
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="height: 170px;">
+                        <a href="<?php echo $this->Crud_model->link_news($row['cat_name'], $row['news_id']);?>">
                         <div class="row">
                             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                 <h4 style="margin-left: 11px" class="text-dark"><?php echo $row['title']; ?></h4>
@@ -76,6 +85,7 @@
                                 <p style="margin-left:12px"><?php echo word_limiter($row['summary'],8); ?>...</p>
                             </div>
                         </div>
+                    </a>
                     </div>
                     <?php } }?>
                 </div>

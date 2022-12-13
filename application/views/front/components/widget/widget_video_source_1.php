@@ -1,4 +1,4 @@
-<div class="widget shop-categories thin-border">
+<!-- <div class="widget shop-categories thin-border">
     <h4 class="widget-title">
     <?php echo translate('browse_videos');?>
     </h4>
@@ -30,4 +30,4 @@
 function source(type){
 	location.replace('<?php echo base_url(); ?>home/video_gallery/'+type);
 }
-</script>
+</script> -->

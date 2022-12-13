@@ -1,4 +1,4 @@
-<div class="widget_box archive_search">
+<!-- <div class="widget_box archive_search">
 
     <?php
         echo form_open(base_url() . 'home/widget_archive_search/', array(
@@ -89,4 +89,4 @@
             //location.replace('<?php echo base_url(); ?>home/archive_news/' + category + '/' + sub_category + '/' + start_date + '/' + end_date + '/' + text_search);
         }, 500);
     });
-</script>
+</script> -->
