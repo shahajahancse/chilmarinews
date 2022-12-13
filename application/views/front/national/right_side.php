@@ -1,54 +1,41 @@
 
-<!-- Products grid -->
-<div  id="result1">
-</div>
-<!-- /Products grid -->
 <?php
-	echo form_open(base_url() . 'home/ajax_national_right_list/', array(
-		'class' => 'form-horizontal',
-		'method' => 'post',
-		'id' => 'filter_form'
-	));
+    $this->db->limit(10);
+    $this->db->select('news_category.name as cat_name,news.*');
+    $this->db->from('news_category');
+    $this->db->where('news.news_category_id = news_category.news_category_id');
+
+    $this->db->order_by('serial_3','desc');
+    $this->db->order_by('news_id','desc');
+    $this->db->where('news.news_speciality_id',3);
+    $this->db->where('news.status','published');
+    $results   = $this->db->get('news')->result_array();
 ?>
 
-</form>
-    
-<script>		
-	function filter_news(page){
-		var form = $('#filter_form');
-		var alert = $('#result1');
-		var formdata = false;
-		if (window.FormData){
-			formdata = new FormData(form[0]);
-		}
-		$.ajax({
-			url: form.attr('action')+page+'/', // form action url
-			type: 'POST', // form submit method get/post
-			dataType: 'html', // request type html/json/xml
-			data: formdata ? formdata : form.serialize(), // serialize form data 
-			cache       : false,
-			contentType : false,
-			processData : false,
-			beforeSend: function() {
-				alert.fadeOut();
-				alert.html('loading...').fadeIn(); // change submit button text
-			},
-			success: function(data) {
-				setTimeout(function(){
-					alert.html(data); // fade in response data
-				}, 20);
-				setTimeout(function(){
-					alert.fadeIn(); // fade in response data
-				}, 30);
-			},
-			error: function(e) {
-				console.log(e)
-			}
-		});
-		
-	}
-	
-	$(document).ready(function(e) {
-		filter_news('0');
-	});	
+<div class="row mar-lr--5">
+    <ul style="border: 1px solid #f9f0f0;">
+        <li class="h3 text-dark" style="padding-left:5px">টপ নিউজ</li>
+        <?php foreach ($results as $key => $row) { 
+            if ($key == 0) { ?>
+                <li>
+                    <a href="<?php echo $this->Crud_model->link_news($row['cat_name'], $row['news_id']);?>">
+                        <img class="image_delay"  height="130px" width="284px" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$row['news_id'],'','','thumb','src','multi','one');?>">
+                        <h5 class="text-dark" style="padding: 5px 0px 5px 5px;"><?php echo word_limiter($row['title'],10);?></h5>
+                    </a>      
+                </li> 
+            <?php } else { ?>            
+            <li style="border-top: 1px dashed #cfc8c8;border-bottom: 1px dashed #cfc8c8;padding: 5px 0px 5px 5px;">
+                <a href="<?php echo $this->Crud_model->link_news($row['cat_name'], $row['news_id']);?>">
+                   <h5 class="text-dark"> <?php echo word_limiter($row['title'],10);?></h5>
+                </a>
+            </li>
+        <?php } } ?>
+    </ul>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+        load_iamges();
+    });
 </script>

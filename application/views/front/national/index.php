@@ -1,11 +1,4 @@
-<?php
-    $this->db->limit(5);
-    $this->db->order_by('serial_3','desc');
-    $this->db->order_by('news_id','desc');
-    $this->db->where('news_speciality_id',3);
-    $this->db->where('status','published');
-    $top_news   = $this->db->get('news')->result_array();
-?>
+
 <section class="page-section pad-tb-5">
     <div class="container-fluid">
         <div class="row mar-lr--5"> 
@@ -26,11 +19,11 @@
             </ol>
 
 
-            <div  class="col-lg-8 col-md-6 col-sm-12 col-xs-12" >
+            <div  class="col-lg-9 col-md-6 col-sm-12" >
                 <?php include 'left_side.php'; ?>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <?php include 'right_side.php'; ?>
             </div>
 

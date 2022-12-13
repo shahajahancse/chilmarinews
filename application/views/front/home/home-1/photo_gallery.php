@@ -8,7 +8,9 @@
     <div class="container-fluid">
         <div class="panel">
             <div class="panel-heading">
-                <h3><?php echo translate($photo_gal_data['title']); ?></h3>
+                <a href="<?php echo base_url(); ?>home/photo_gallery">
+                    <h3><?php echo translate($photo_gal_data['title']); ?></h3>
+                </a>
                 <a style="margin-top: -38px;" href="<?php echo base_url(); ?>home/photo_gallery" class="btn_seeMore">
                     <?php echo translate('see_more'); ?>
                 </a>
