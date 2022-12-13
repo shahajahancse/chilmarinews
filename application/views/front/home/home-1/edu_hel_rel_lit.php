@@ -1,9 +1,9 @@
 <?php
-    $this->db->limit(7);
+    $this->db->limit(4);
     $this->db->select('news_category.name as cat_name,news.*');
     $this->db->from('news_category');
     $this->db->where('news.news_category_id = news_category.news_category_id');
-    $this->db->where('news.news_category_id',10);
+    $this->db->where('news.news_category_id',15);
 
     $this->db->order_by('serial_3','desc');
     $this->db->order_by('news_id','desc');
@@ -17,28 +17,30 @@
     <div class="container-fluid">
         <!-- <h3 style="margin-left:10px">খেলাধুলা</h3> -->
         <div class="row">
-
-            
-              <div class="col-lg-3" >
-                    <ul style="border: 1px solid #f9f0f0;">
-                        <li class="h3 text-dark" style="padding-left:5px">শিক্ষা</li>
-                        <li>
-                            <img style=""  height="130px" width="284px" src="https://cdn.jagonews24.com/media/imgAllNew/SM/2019November/cambrige-20221210193146.jpg">
-                            <!-- <h5 class="text-dark" style="padding: 5px 0px 5px 5px;">ক্যামব্রিজ ইন্টারন্যাশনাল অ্যাওয়ার্ড পেলেন ৯ শিক্ষার্থী</h5> -->
-                        </li>
-
+            <div class="col-lg-3" >
+                <ul style="border: 1px solid #f9f0f0;">
+                    <li class="h3 text-dark" style="padding-left:5px">শিক্ষা</li>
+                    <?php foreach ($detail_news as $key => $row) { 
+                        if ($key == 0) { ?>
+                            <li>
+                                <a href="<?php echo $this->Crud_model->link_news($row['cat_name'], $row['news_id']);?>">
+                                    <img class="image_delay"  height="130px" width="284px" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$row['news_id'],'','','thumb','src','multi','one');?>">
+                                    <h5 class="text-dark" style="padding: 5px 0px 5px 5px;"><?php echo word_limiter($row['title'],10);?></h5>
+                                </a>      
+                            </li> 
+                        <?php } else { ?>            
                         <li style="border-top: 1px dashed #cfc8c8;border-bottom: 1px dashed #cfc8c8;padding: 5px 0px 5px 5px;">
-                           <h5 class="text-dark"> প্রাথমিকে বৃত্তি পরীক্ষা ২৯ ডিসেম্বর</h5>
+                            <a href="<?php echo $this->Crud_model->link_news($row['cat_name'], $row['news_id']);?>">
+                               <h5 class="text-dark"> <?php echo word_limiter($row['title'],10);?></h5>
+                            </a>
                         </li>
-                        <li style="padding: 5px 0px 5px 5px;border-bottom: 1px dashed #cfc8c8;">
-                           <h5 class="text-dark"> ২০২২ সালের শিক্ষা জরিপ: মাউশিতে তথ্য দেয়নি ৬৮৪ শিক্ষাপ্রতিষ্ঠান</h5>
-                        </li>
-                        <li style="padding: 5px 0px 5px 5px;">
-                           <h5 class="text-dark"> ২০২২ সালের শিক্ষা জরিপ: মাউশিতে তথ্য দেয়নি ৬৮৪ শিক্ষাপ্রতিষ্ঠান</h5>
-                        </li>
-                    </ul>
-                </div>
+                    <?php } } ?>
+                </ul>
+            </div>
+          
  
+
+
                 <div class="col-lg-3" >
                     <ul style="border: 1px solid #f9f0f0;">
                         <li class="h3 text-dark" style="padding-left:5px">স্বাস্থ্য</li>

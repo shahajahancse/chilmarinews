@@ -6,6 +6,20 @@
     $comment_type = $this->db->get_where('third_party_settings', array('type' => 'comment_type'))->row()->value;
     $news_description_data = json_decode($this->Crud_model->get_settings_value('ui_settings', 'news_description', 'value'), true);
 ?>
+
+<?php
+    $this->db->limit(10);
+    $this->db->select('news_category.name as cat_name,news.*');
+    $this->db->from('news_category');
+    $this->db->where('news.news_category_id = news_category.news_category_id');
+
+    $this->db->order_by('serial_3','desc');
+    $this->db->order_by('news_id','desc');
+    $this->db->where('status','published');
+    $detail_news    = $this->db->get('news')->result();
+    // dd(count($detail_news)); 
+?>
+
 <div class="content-area">
     <!-- PAGE WITH SIDEBAR -->
     <section class="page-section with-sidebar pad-t-15">
@@ -21,7 +35,7 @@
                     </span>
                     <!-- Blog post -->
                     <?php
-                    // foreach ($news_description as $rows) {
+                        // foreach ($news_description as $rows) {
                         $img = json_decode($result->img_features, true);
                         $i = sizeof($img);
                     ?>
@@ -222,7 +236,7 @@
                     </section>
                     <!-- /PAGE -->
                     <!-- /advertisement space -->
-                    <div class="advertise_space2">
+                    <!-- <div class="advertise_space2">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pad-t-15">
                                 <?php echo $this->Html_model->advertise_rect('news_description_2'); ?>
@@ -231,15 +245,26 @@
                                 <?php echo $this->Html_model->advertise_rect('news_description_3'); ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /advertisement space -->
-                    <div class="bottom_part">
+                    <!-- <div class="bottom_part">
                         <?php
                         echo $this->Html_model->bottom_part($news_description_data['page_bottom']);
                         ?>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- /CONTENT -->
+                <!-- right side -->
+                <div class="col-md-3">
+                    <h4 class="breadcrumb-custom text-dark">সাম্প্রতিক পোস্ট</h4>
+                    <ul style="border: 1px solid #f9f0f0;">
+                        <?php foreach ($detail_news as $key => $row) { ?>
+                            <li style="padding: 5px 0px 5px 5px; border-bottom: 1px dashed #cfc8c8;">
+                                <a href="<?php echo $this->Crud_model->link_news($row->cat_name, $row->news_id);?>"><h5 class=""><?php echo word_limiter($row->title,10);?></h5></a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
