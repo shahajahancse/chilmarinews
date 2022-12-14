@@ -17,7 +17,7 @@
 
 <section class="page-section pad-tb-5">
     <div class="container-fluid">
-        <h3 style="margin-left:10px">দেশজুড়ে</h3>
+        <h3 style="margin-left:15px">দেশজুড়ে</h3>
         <div class="row">
             <div class="col-lg-12">
                 <div class="row">

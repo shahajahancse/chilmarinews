@@ -9,7 +9,7 @@
 <section class="page-section with-sidebar pad-tb-5" style="margin-top:20px">
     <div class="container-fluid">
         <div class="row mar-lr--5">
-            <h3 style="margin-left:8px">আন্তর্জাতিক</h3>
+            <h3 style="margin-left:15px">আন্তর্জাতিক</h3>
             <!-- SIDEBAR -->
             <!-- <aside class="col-md-3 hidden-sm hidden-xs sidebar < ?php if($detail_news_data['sidebar'] == 'right'){ echo 'pull-right'; } ?>" id="sidebar">
                 <div class="box_shadow">
