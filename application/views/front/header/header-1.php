@@ -12,7 +12,7 @@
         <div style="display:table; width:100%;">
             <div style="display:table-row;">
                 <div class="top-bar-left" style="display:table-cell;">
-                <div class="list-inline">
+                    <div class="list-inline">
                         <!-- <li class="header_clock hidden-sm  hidden-xs">
                             <ul>
                                 <li class="number" id="hours"></li>
@@ -24,7 +24,13 @@
                             </ul>
                         </li> -->
                         <li class="hidden-sm hidden-xs">
-                            <div id="Date" class="date"></div>
+                            <!-- <div id="Date" class="date"></div> -->
+                            <div>
+                                <?php echo bangla_day(date("D")).', '. bangla_date_format(date("d-m-Y")) ?>
+                            </div>
+                            <div>
+                                <?php echo BDdate(time()) .' বঙ্গাব্দ'; ?>
+                            </div>
                         </li>
                     </div>
                     <!-- <ul class="list-inline">
@@ -112,13 +118,13 @@
 
                     </ul> -->
                 </div>
-                <div class="top-bar-middle" style="display:table-cell; float:none; text-align:center;">
 
-                <ul class="logo pull-left hidden-sm hidden-xs">
+                <div class="top-bar-middle" style="display:table-cell; float:none; text-align:center;">
+                    <ul class="logo top-bar-middle hidden-sm hidden-xs">
                        <li> <a href="<?php echo base_url(); ?>">
                             <img class="img-responsive" src="<?php echo $this->Crud_model->logo('home_top_logo'); ?>" >
                         </a></li>
-                </ul>
+                    </ul>
                     <!-- <ul class="list-inline">
                         <li class="header_clock hidden-sm  hidden-xs">
                             <ul>

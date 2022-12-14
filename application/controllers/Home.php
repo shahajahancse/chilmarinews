@@ -34,6 +34,7 @@ class Home extends CI_Controller {
     }
 
     public function index() {
+
         $page_data['asset_page'] = 'home';
         $page_data['page_name'] = 'home/home-1';
         $page_data['page_title'] = translate('home');
