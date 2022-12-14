@@ -15,7 +15,9 @@
     <div class="container-fluid bg-info">
         <div class="">
 
-            <h3>  বিশেষ প্রতিবেদন</h3>
+            <a href="<?php echo base_url(); ?>home/special_report">
+                <h3> বিশেষ প্রতিবেদন</h3>
+            </a>
 
                 <div class="row">
                     <?php foreach ($results as $key => $row) { ?>

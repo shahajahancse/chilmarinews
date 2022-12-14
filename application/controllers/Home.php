@@ -119,14 +119,338 @@ class Home extends CI_Controller {
 
         $this->load->view('front/national/ajax_left_list', $page_data);
     }
-
-    function ajax_national_right_list() {
-        // pagination
-        $page_data['results'] = $this->db->where('news_speciality_id', 3)->order_by('news_id', 'DESC')->limit(10)->get('news')->result_array();
-        dd($page_data['results'] );
-        $this->load->view('front/national/ajax_right_list', $page_data);
-    }
     // end national
+
+    // politics section
+    function politics() {
+        $page_data['asset_page'] = 'national';
+        $page_data['page_name'] = 'politics';
+        $page_data['page_title'] = 'রাজনীতি';
+        $this->load->view('front/index', $page_data);
+    }
+
+    function ajax_politics_left_list($para1 = '') {
+        $this->load->library('Ajax_pagination');
+
+        // pagination
+        $config['total_rows'] = $this->db->where('news_category_id',10)->count_all_results('news');
+        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['per_page'] = 12;
+        $config['uri_segment'] = 5;
+        $config['cur_page_giv'] = $para1;
+
+        $function = "filter_news('0')";
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['first_tag_close'] = '</a></li>';
+
+        $rr = ($config['total_rows'] - 1) / $config['per_page'];
+        $last_start = floor($rr) * $config['per_page'];
+        $function = "filter_news('" . $last_start . "')";
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['last_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
+        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['prev_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
+        $config['next_link'] = '&rsaquo;';
+        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['next_tag_close'] = '</a></li>';
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
+        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['num_tag_close'] = '</a></li>';
+        $this->ajax_pagination->initialize($config);
+
+         
+
+        $this->db->select('news_category.name as cat_name,news.*');
+        $this->db->from('news_category');
+        $this->db->where('news.news_category_id = news_category.news_category_id');
+        $this->db->where('news.news_category_id',11);
+        $page_data['results'] = $this->db->get('news', $config['per_page'], $para1)->result_array();
+
+        // dd($page_data['results']);
+        $page_data['count'] = $config['total_rows'];
+
+        $this->load->view('front/politics/ajax_left_list', $page_data);
+    }
+    // end politics
+
+    // international section
+    function international() {
+        $page_data['asset_page'] = 'national';
+        $page_data['page_name'] = 'international';
+        $page_data['page_title'] = 'আন্তর্জাতিক';
+        $this->load->view('front/index', $page_data);
+    }
+
+    function ajax_international_left_list($para1 = '') {
+        $this->load->library('Ajax_pagination');
+
+        // pagination
+        $config['total_rows'] = $this->db->where('news_category_id',10)->count_all_results('news');
+        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['per_page'] = 12;
+        $config['uri_segment'] = 5;
+        $config['cur_page_giv'] = $para1;
+
+        $function = "filter_news('0')";
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['first_tag_close'] = '</a></li>';
+
+        $rr = ($config['total_rows'] - 1) / $config['per_page'];
+        $last_start = floor($rr) * $config['per_page'];
+        $function = "filter_news('" . $last_start . "')";
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['last_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
+        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['prev_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
+        $config['next_link'] = '&rsaquo;';
+        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['next_tag_close'] = '</a></li>';
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
+        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['num_tag_close'] = '</a></li>';
+        $this->ajax_pagination->initialize($config);
+
+         
+
+        $this->db->select('news_category.name as cat_name,news.*');
+        $this->db->from('news_category');
+        $this->db->where('news.news_category_id = news_category.news_category_id');
+        $this->db->where('news.news_category_id',11);
+        $page_data['results'] = $this->db->get('news', $config['per_page'], $para1)->result_array();
+
+        // dd($page_data['results']);
+        $page_data['count'] = $config['total_rows'];
+
+        $this->load->view('front/international/ajax_left_list', $page_data);
+    }
+    // end international
+
+    // economy section
+    function economy() {
+        $page_data['asset_page'] = 'economy';
+        $page_data['page_name'] = 'economy';
+        $page_data['page_title'] = 'অর্থনীতি';
+        $this->load->view('front/index', $page_data);
+    }
+
+    function ajax_economy_left_list($para1 = '') {
+        $this->load->library('Ajax_pagination');
+
+        // pagination
+        $config['total_rows'] = $this->db->where('news_category_id',12)->count_all_results('news');
+        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['per_page'] = 12;
+        $config['uri_segment'] = 5;
+        $config['cur_page_giv'] = $para1;
+
+        $function = "filter_news('0')";
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['first_tag_close'] = '</a></li>';
+
+        $rr = ($config['total_rows'] - 1) / $config['per_page'];
+        $last_start = floor($rr) * $config['per_page'];
+        $function = "filter_news('" . $last_start . "')";
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['last_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
+        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['prev_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
+        $config['next_link'] = '&rsaquo;';
+        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['next_tag_close'] = '</a></li>';
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
+        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['num_tag_close'] = '</a></li>';
+        $this->ajax_pagination->initialize($config);
+
+         
+
+        $this->db->select('news_category.name as cat_name,news.*');
+        $this->db->from('news_category');
+        $this->db->where('news.news_category_id = news_category.news_category_id');
+        $this->db->where('news.news_category_id',12);
+        $page_data['results'] = $this->db->get('news', $config['per_page'], $para1)->result_array();
+
+        // dd($page_data['results']);
+        $page_data['count'] = $config['total_rows'];
+
+        $this->load->view('front/economy/ajax_left_list', $page_data);
+    }
+    // end economy
+
+    // special report section
+    function special_report() {
+        $page_data['asset_page'] = 'special_report';
+        $page_data['page_name'] = 'special_report';
+        $page_data['page_title'] = 'বিশেষ প্রতিবেদন';
+        $this->load->view('front/index', $page_data);
+    }
+
+    function ajax_special_report_left_list($para1 = '') {
+        $this->load->library('Ajax_pagination');
+
+        // pagination
+        $config['total_rows'] = $this->db->where('news_category_id',10)->count_all_results('news');
+        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['per_page'] = 12;
+        $config['uri_segment'] = 5;
+        $config['cur_page_giv'] = $para1;
+
+        $function = "filter_news('0')";
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['first_tag_close'] = '</a></li>';
+
+        $rr = ($config['total_rows'] - 1) / $config['per_page'];
+        $last_start = floor($rr) * $config['per_page'];
+        $function = "filter_news('" . $last_start . "')";
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['last_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
+        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['prev_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
+        $config['next_link'] = '&rsaquo;';
+        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['next_tag_close'] = '</a></li>';
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
+        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['num_tag_close'] = '</a></li>';
+        $this->ajax_pagination->initialize($config);
+
+         
+
+        $this->db->select('news_category.name as cat_name,news.*');
+        $this->db->from('news_category');
+        $this->db->where('news.news_category_id = news_category.news_category_id');
+        $this->db->where('news.news_category_id',10);
+        $page_data['results'] = $this->db->get('news', $config['per_page'], $para1)->result_array();
+
+        // dd($page_data['results']);
+        $page_data['count'] = $config['total_rows'];
+
+        $this->load->view('front/special_report/ajax_left_list', $page_data);
+    }
+    // end special_report
+
+
+
+    // sports section
+    function sports() {
+        $page_data['asset_page'] = 'national';
+        $page_data['page_name'] = 'sports';
+        $page_data['page_title'] = 'খেলাধুলা';
+        $this->load->view('front/index', $page_data);
+    }
+
+    function ajax_sports_left_list($para1 = '') {
+        $this->load->library('Ajax_pagination');
+
+        // pagination
+        $config['total_rows'] = $this->db->where('news.news_category_id',12)->count_all_results('news');
+        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['per_page'] = 6;
+        $config['uri_segment'] = 5;
+        $config['cur_page_giv'] = $para1;
+
+        $function = "filter_news('0')";
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['first_tag_close'] = '</a></li>';
+
+        $rr = ($config['total_rows'] - 1) / $config['per_page'];
+        $last_start = floor($rr) * $config['per_page'];
+        $function = "filter_news('" . $last_start . "')";
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['last_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 - $config['per_page']) . "')";
+        $config['prev_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['prev_tag_close'] = '</a></li>';
+
+        $function = "filter_news('" . ($para1 + $config['per_page']) . "')";
+        $config['next_link'] = '&rsaquo;';
+        $config['next_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['next_tag_close'] = '</a></li>';
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+        $function = "filter_news(((this.innerHTML-1)*" . $config['per_page'] . "))";
+        $config['num_tag_open'] = '<li><a onClick="' . $function . '">';
+        $config['num_tag_close'] = '</a></li>';
+        $this->ajax_pagination->initialize($config);
+
+         
+
+        $this->db->select('news_category.name as cat_name,news.*');
+        $this->db->from('news_category');
+        $this->db->where('news.news_category_id = news_category.news_category_id');
+        $this->db->where('news.news_category_id',12);
+        $page_data['results'] = $this->db->get('news', $config['per_page'], $para1)->result_array();
+
+        // dd($page_data['results']);
+        $page_data['count'] = $config['total_rows'];
+
+        $this->load->view('front/sports/ajax_left_list', $page_data);
+    }
+
+
+    // end sports
+
+    
 
     // photo gallary
     function photo_gallery() {
