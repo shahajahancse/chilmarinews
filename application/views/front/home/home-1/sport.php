@@ -13,9 +13,9 @@
 ?>
 <section class="page-section pad-tb-5">
     <div class="container-fluid">
-    <a href="<?php echo base_url() ?>">
-        <h3 style="margin-left:10px">খেলাধুলা</h3>
-    </a>
+        <a href="<?php echo base_url(); ?>home/sports">
+            <h3 style="margin-left:10px">খেলাধুলা</h3>
+        </a>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">

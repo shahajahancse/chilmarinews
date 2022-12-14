@@ -165,7 +165,7 @@
                             <i class="fa fa-home"></i> প্রচ্ছদ</a>
                     </li>
 
-                    <li class="<?php if($page_name=='national' || $page_name=='video_gallery'){echo "active";}?>">
+                    <li class="<?php if($page_name=='national' || $page_name=='politics' || $page_name=='economy' || $page_name=='special_report'){echo "active";}?>">
                         <a href="#">
                             বাংলাদেশ
                             <i class="fa fa-caret-down fa-indicator"></i>
@@ -174,18 +174,18 @@
                             <div class="grid-row">
                                 <ul>
                                     <li><a href="<?php echo base_url(); ?>home/national"><i class="fa fa-caret-right"></i>জাতীয়</a></li>
-                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>রাজনীতি</a></li>
-                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>অর্থনীতি</a></li>
-                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i>বিশেষ প্রতিবেদন</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/politics"><i class="fa fa-caret-right"></i>রাজনীতি</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/economy"><i class="fa fa-caret-right"></i>অর্থনীতি</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/special_report"><i class="fa fa-caret-right"></i>বিশেষ প্রতিবেদন</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li class="<?php if($page_name=='archive_news'){echo "active";}?>">
-                        <a href="<?php echo base_url(); ?>home/archive_news/0/0">সারাদেশ</a>
+                    <li class="<?php if($page_name=='national'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>home/national">সারাদেশ</a>
                     </li>
-                    <li class="<?php if($page_name=='archive_news'){echo "active";}?>">
-                        <a href="<?php echo base_url(); ?>home/archive_news/0/0">আন্তর্জাতিক</a>
+                    <li class="<?php if($page_name=='international'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>home/international">আন্তর্জাতিক</a>
                     </li>
 
 
@@ -261,29 +261,29 @@
                         </div>
                     </li> -->
 
-                    <li class="<?php if($page_name=='contact'){echo "active";}?>">
-                        <a href="<?php echo base_url(); ?>home/contact">
+                    <li class="<?php if($page_name=='sports'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>home/sports">
                             <?php echo translate('খেলাধুলা'); ?> 
                         </a>
                     </li>
-                    <li class="<?php if($page_name=='blog' || $page_name=='blog_list' || $page_name=='blog_detail'){echo "active";}?>">
-                        <a href="<?php echo base_url(); ?>home/blog">
+                    <li class="<?php if($page_name=='blog'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>">
                             <?php echo translate('শিক্ষা'); ?>
                         </a>
                     </li>
-                    <li class="<?php if($page_name=='blog' || $page_name=='blog_list' || $page_name=='blog_detail'){echo "active";}?>">
-                        <a href="<?php echo base_url(); ?>home/blog">
+                    <li class="<?php if($page_name=='blog'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>">
                             <?php echo translate('স্বাস্থ্য'); ?>
                         </a>
                     </li>
 
-                    <li class="<?php if($page_name=='blog' || $page_name=='blog_list' || $page_name=='blog_detail'){echo "active";}?>">
-                        <a href="<?php echo base_url(); ?>home/blog">
+                    <li class="<?php if($page_name=='blog'){echo "active";}?>">
+                        <a href="<?php echo base_url(); ?>">
                             <?php echo translate('ধর্ম'); ?>
                         </a>
                     </li>
                     
-                    <li class="<?php if($page_name=='blog_photo_gallery' || $page_name=='blog_video_gallery'){echo "active";}?>">
+                    <li class="<?php if($page_name=='photo_gallery' || $page_name=='video_gallery'){echo "active";}?>">
                         <a href="#">
                             <?php echo translate('মিডিয়া'); ?>
                             <i class="fa fa-caret-down fa-indicator"></i>
@@ -292,13 +292,13 @@
                             <div class="grid-row">
                                 <ul>
                                     <li><a href="<?php echo base_url(); ?>home/photo_gallery"><i class="fa fa-caret-right"></i><?php echo translate('ফটো গ্যালারি'); ?></a></li>
-                                    <li><a href="<?php echo base_url(); ?>home/blog_video_gallery"><i class="fa fa-caret-right"></i><?php echo translate('ভিডিও গ্যালারি'); ?></a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/video_gallery"><i class="fa fa-caret-right"></i><?php echo translate('ভিডিও গ্যালারি'); ?></a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                     <li class="<?php if($page_name=='contact'){echo "active";}?>">
-                        <a href="<?php echo base_url(); ?>home/contact">
+                        <a href="<?php echo base_url(); ?>">
                             <?php echo translate('মতামত'); ?> 
                         </a>
                     </li>
@@ -376,95 +376,88 @@
         <li class="active">
             <a href="<?php echo base_url(); ?>home">
                 <i class="fa fa-home"></i>
-                <?php echo translate('home'); ?>
+                <?php echo 'প্রচ্ছদ'; ?>
             </a>
         </li>
         <li>
-            <a href="<?php echo base_url(); ?>home/news/0/0">
-                <?php echo translate('news'); ?>
-            </a> <!-- drop down full width -->
+            <a href="#"> <?php echo 'বাংলাদেশ'; ?> </a> 
+            <!-- drop down full width -->
             <ul>
-                <?php
-                    $category = $this->db->get('news_category')->result_array();
-                    foreach ($category as $row) {
-                ?>
-                    <li>
-                        <a href="<?php echo base_url(); ?>home/news/<?php echo $row['news_category_id']; ?>/0">
-                            <?php echo $row['name']; ?>
-                        </a>
-                    </li>
-                <?php
-                    }
-                ?>
+                <li>
+                    <a href="<?php echo base_url(); ?>home/national">
+                        <?php echo "জাতীয়"; ?>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>home/politics">
+                        <?php echo "রাজনীতি"; ?>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>home/economy">
+                        <?php echo "অর্থনীতি"; ?>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>home/special_report">
+                        <?php echo "বিশেষ প্রতিবেদন"; ?>
+                    </a>
+                </li>
             </ul>
         </li>
         <li>
-            <a href="<?php echo base_url(); ?>home/archive_news/0/0">
-                <?php echo translate('archive_news'); ?>
+            <a href="<?php echo base_url(); ?>home/national">
+                <?php echo "সারাদেশ"; ?>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo base_url(); ?>home/international">
+                <?php echo "আন্তর্জাতিক"; ?>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo base_url(); ?>home/sports">
+                <?php echo "খেলাধুলা"; ?>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo base_url(); ?>">
+                <?php echo "শিক্ষা"; ?>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo base_url(); ?>">
+                <?php echo "স্বাস্থ্য"; ?>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo base_url(); ?>">
+                <?php echo "ধর্ম"; ?>
             </a>
         </li>
 
         <li>
             <a href="#">
-                <?php echo translate('media'); ?>
+                <?php echo "মিডিয়া"; ?>
             </a> <!-- drop down full width -->
             <ul>
                 <li>
                     <a href="<?php echo base_url(); ?>home/photo_gallery">
-                        <?php echo translate('photo_gallery'); ?>
+                        <?php echo translate('ফটো গ্যালারি'); ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo base_url(); ?>home/video_gallery">
-                        <?php echo translate('video_gallery'); ?>
+                        <?php echo translate('ভিডিও গ্যালারি'); ?>
                     </a>
                 </li>
             </ul>
         </li>
 
         <li>
-            <a href="<?php echo base_url(); ?>home/contact">
-                <?php echo translate('contact'); ?>
+            <a href="<?php echo base_url(); ?>">
+                <?php echo "মতামত"; ?>
             </a>
-        </li>
-        <li>
-            <a href="<?php echo base_url(); ?>home/blog">
-                <?php echo translate('blog'); ?>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <?php echo translate('blog_media'); ?>
-            </a> <!-- drop down full width -->
-            <ul>
-                <li>
-                    <a href="<?php echo base_url(); ?>home/blog_photo_gallery">
-                        <?php echo translate('photo_gallery'); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url(); ?>home/blog_video_gallery">
-                        <?php echo translate('video_gallery'); ?>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">
-                <?php echo translate('more'); ?>
-            </a> <!-- drop down full width -->
-            <ul>
-                <li>
-                    <a href="<?php echo base_url(); ?>home/reporters">
-                        <?php echo translate('reporters'); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url(); ?>home/bloggers">
-                        <?php echo translate('bloggers'); ?>
-                    </a>
-                </li>
-            </ul>
         </li>
     </ul>
 </nav>
