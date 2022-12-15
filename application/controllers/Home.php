@@ -45,8 +45,14 @@ class Home extends CI_Controller {
     public function detail_news($cat_name = null, $id = null)
     {
         $id = base64_decode($id);
-        $result = $this->db->where('news_id',$id)->get('news')->row();
         $cat_name = $this->db->where('news_category_id',$result->news_category_id)->get('news_category')->row()->name_bn;
+        $result = $this->db->where('news_id',$id)->get('news')->row();
+
+        $this->db->where('news_id', $id);
+        $this->db->update('news', array(
+            'view_count' => $result->view_count + 1
+        ));
+
         $page_data['asset_page'] = $cat_name;
         $page_data['page_name'] = 'home/news';
         $page_data['page_title'] = $cat_name;
@@ -1414,6 +1420,7 @@ class Home extends CI_Controller {
         $page_data['news_mood'] = 'news';
         $news_data = $this->db->get_where('news', array('news_id' => $para1, 'status' => 'published'));
         $page_data['news_description'] = $news_data->result_array();
+
         if (count($page_data['news_description']) == 1) {
             $page_data['news_description'] = $news_data->result_array();
             $this->db->where('news_id', $para1);

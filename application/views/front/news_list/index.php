@@ -24,7 +24,7 @@ $listing_news_data = json_decode($this->Crud_model->get_settings_value('ui_setti
 
                     </div>
                     <!-- /advertisement space -->
-                    <div class="advertise_space2">
+                    <!-- <div class="advertise_space2">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pad-t-15">
                                 <?php echo $this->Html_model->advertise_rect('news_list_2'); ?>
@@ -33,7 +33,7 @@ $listing_news_data = json_decode($this->Crud_model->get_settings_value('ui_setti
                                 <?php echo $this->Html_model->advertise_rect('news_list_3'); ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /advertisement space -->
                     <?php
                         echo $this->Html_model->bottom_part($listing_news_data['page_bottom']);

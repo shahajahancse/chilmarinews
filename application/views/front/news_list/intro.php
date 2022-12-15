@@ -17,7 +17,7 @@
     ?>
         <li class="active">
             <span>
-                <?php echo $this->Crud_model->get_type_name_by_id('news_category',$news_category); ?>
+                <?php echo $this->Crud_model->get_type_name_by_id('news_category',$news_category, 'name_bn'); ?>
             </span>
         </li>
     <?php
@@ -25,7 +25,7 @@
     ?>
         <li>
             <a href="<?php echo base_url(); ?>home/news/<?php echo $news_category;?>/0">
-                <?php echo $this->Crud_model->get_type_name_by_id('news_category',$news_category); ?>
+                <?php echo $this->Crud_model->get_type_name_by_id('news_category',$news_category, 'name_bn'); ?>
             </a>
         </li>
         <li class="active">
