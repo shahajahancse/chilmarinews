@@ -13,16 +13,7 @@
             <div style="display:table-row;">
                 <div class="top-bar-left" style="display:table-cell;">
                     <div class="list-inline">
-                        <!-- <li class="header_clock hidden-sm  hidden-xs">
-                            <ul>
-                                <li class="number" id="hours"></li>
-                                <li id="point">:</li>
-                                <li class="number" id="min"></li>
-                                <li id="point">:</li>
-                                <li class="number" id="sec"></li>
-                                <li id="period"></li>
-                            </ul>
-                        </li> -->
+
                         <li class="hidden-sm hidden-xs">
                             <!-- <div id="Date" class="date"></div> -->
                             <div>
@@ -33,90 +24,7 @@
                             </div>
                         </li>
                     </div>
-                    <!-- <ul class="list-inline">
-                        <li class="dropdown flags">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                < ?php
-                                    if ($set_lang = $this->session->userdata('language')) {
 
-                                    } else {
-                                        $set_lang = $this->db->get_where('general_settings', array('type' => 'language'))->row()->value;
-                                    }
-                                    $lid = $this->db->get_where('language_list', array('db_field' => $set_lang))->row()->language_list_id;
-                                    $lnm = $this->db->get_where('language_list', array('db_field' => $set_lang))->row()->name;
-                                ?>
-                                <img src="< ?php echo $this->Crud_model->file_view('language_list', $lid, '', '', 'no', 'src', '', '', '.jpg') ?>" width="20px;" alt=""/>
-                                <span class="hidden-xs">< ?php echo $lnm; ?></span>
-                                <i class="fa fa-caret-down"></i>
-                            </a>
-                            <ul role="menu" class="dropdown-menu">
-                                < ?php
-                                    $langs = $this->db->get_where('language_list', array('status' => 'ok'))->result_array();
-                                    foreach ($langs as $row) {
-                                ?>
-                                    <li < ?php if ($set_lang == $row['db_field']) { ?>class="active"< ?php } ?> >
-                                        <a class="set_langs" data-href="< ?php echo base_url(); ?>home/set_language/<?php echo $row['db_field']; ?>">
-                                            <img src="< ?php echo $this->Crud_model->file_view('language_list', $row['language_list_id'], '', '', 'no', 'src', '', '', '.jpg') ?>" width="20px;" alt=""/>
-                                            < ?php echo $row['name']; ?>
-                                            < ?php if ($set_lang == $row['db_field']) { ?>
-                                                <i class="fa fa-check"></i>
-                                            < ?php } ?>
-                                        </a>
-                                    </li>
-                                < ?php
-                                    }
-                                ?>
-                            </ul>
-                        </li>
-                        <li class="dropdown flags">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                < ?php
-                                    if($currency_id = $this->session->userdata('currency'))
-                                    {}
-                                    else {
-                                        $currency_id = $this->db->get_where('business_settings', array('type' => 'currency'))->row()->value;
-                                    }
-                                    $symbol = $this->db->get_where('currency_settings',array('currency_settings_id'=>$currency_id))->row()->symbol;
-                                    $c_name = $this->db->get_where('currency_settings',array('currency_settings_id'=>$currency_id))->row()->name;
-                                ?>
-                                <span class="hidden-xs">< ?php echo $c_name; ?></span> (< ?php echo $symbol; ?>)
-                                <i class="fa fa-caret-down"></i>
-                            </a>
-                            <ul role="menu" class="dropdown-menu">
-                                < ?php
-                                    $currencies = $this->db->get_where('currency_settings',array('status'=>'ok'))->result_array();
-                                    foreach ($currencies as $row)
-                                    {
-                                ?>
-                                    <li < ?php if($currency_id == $row['currency_settings_id']){ ?>class="active"< ?php } ?> >
-                                        <a class="set_langs" data-href="< ?php echo base_url(); ?>home/set_currency/< ?php echo $row['currency_settings_id']; ?>">
-                                            < ? php echo $row['name']; ?> (< ?php echo $row['symbol']; ?>)
-                                            < ?php if($currency_id == $row['currency_settings_id']){ ?>
-                                                <i class="fa fa-check"></i>
-                                            < ?php } ?>
-                                        </a>
-                                    </li>
-                                < ? php
-                                    }
-                                ?>
-                            </ul>
-                        </li>
-                        <li class="hidden-sm hidden-xs">
-                            <a href="< ?php echo base_url(); ?>home/marketing" class="link">
-                                <i class="fa fa-bullhorn"></i>
-                                < ?php echo translate('apply_for_advertise'); ?>
-                            </a>
-                        </li> -->
-                        <!-- < ?php if (@$this->db->get_where('user',array('user_id' => $this->session->userdata('user_id')))->row()->is_blogger == 'yes'): ?>
-                        <li class="hidden-sm hidden-xs">
-                            <a href="< ?php echo base_url(); ?>home/profile/pfp" class="link">
-                                <i class="fa fa-credit-card"></i>
-                                < ?php echo translate('blog_posting'); ?>
-                            </a>
-                        </li>
-                        < ?php endif ?>
-
-                    </ul> -->
                 </div>
 
                 <div class="top-bar-middle" style="display:table-cell; float:none; text-align:center;">
@@ -125,24 +33,9 @@
                             <img class="img-responsive" src="<?php echo $this->Crud_model->logo('home_top_logo'); ?>" >
                         </a></li>
                     </ul>
-                    <!-- <ul class="list-inline">
-                        <li class="header_clock hidden-sm  hidden-xs">
-                            <ul>
-                                <li class="number" id="hours"></li>
-                                <li id="point">:</li>
-                                <li class="number" id="min"></li>
-                                <li id="point">:</li>
-                                <li class="number" id="sec"></li>
-                                <li id="period"></li>
-                            </ul>
-                        </li>
-                        <li class="hidden-sm hidden-xs">
-                            <div id="Date" class="date"></div>
-                        </li>
-                    </ul> -->
+
                 </div>
                 <div class="top-bar-right" style="display:table-cell; float:none; text-align:right;">
-
                 </div>
             </div>
         </div>

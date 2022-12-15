@@ -45,8 +45,8 @@ class Home extends CI_Controller {
     public function detail_news($cat_name = null, $id = null)
     {
         $id = base64_decode($id);
-        $cat_name = $this->db->where('news_category_id',$result->news_category_id)->get('news_category')->row()->name_bn;
         $result = $this->db->where('news_id',$id)->get('news')->row();
+        $cat_name = $this->db->where('news_category_id',$result->news_category_id)->get('news_category')->row()->name_bn;
 
         $this->db->where('news_id', $id);
         $this->db->update('news', array(

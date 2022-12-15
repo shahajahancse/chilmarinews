@@ -84,10 +84,10 @@
                                     </span>
                                     <span class="divider">|</span>
                                     <span>
-                                        <!-- < ?php echo translate('reported_by'); ?> : -->
-                                        <!-- <a href="< ?php echo $this->Crud_model->reporter_link($rows['news_reporter_id']); ?>"> -->
-                                            <!-- < ?php echo $this->Crud_model->get_type_name_by_id('news_reporter', $rows['news_reporter_id']); ?> -->
-                                        <!-- </a> -->
+                                        <?php echo translate('reported_by'); ?> :
+                                        <a href="<?php echo $this->Crud_model->reporter_link($rows['news_reporter_id']); ?>">
+                                            <?php echo $this->Crud_model->get_type_name_by_id('news_reporter', $rows['news_reporter_id']); ?>
+                                        </a>
                                     </span>
                                 </div>
                                 <div class="post-meta print" style="display:none;">
