@@ -16,23 +16,22 @@
         <div class="">
 
             <a href="<?php echo base_url(); ?>home/special_report">
-                <h3> বিশেষ প্রতিবেদন</h3>
+                <h3 class="text-dark"><b>বিশেষ প্রতিবেদন</b></h3>
             </a>
-
                 <div class="row">
                     <?php foreach ($results as $key => $row) { ?>
-                    <div class="col-sm-6 col-xs-12">
+                    <div class="col-sm-6 col-xs-12" style="margin-bottom:15px">
                         <a href="<?php echo $this->Crud_model->link_news($row->cat_name, $row->news_id);?>">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="media">
                                         <span class="media-link">
-                                            <img class="img-thumbnail img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$row->news_id,'','','thumb','src','multi','one');?>" alt=""/>
+                                            <img style="height: 120px;width: 180px;" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$row->news_id,'','','thumb','src','multi','one');?>" alt=""/>
                                         </span> 
                                     </div>
                                 </div>
 
-                                <div class="col-md-8 pad-l-0 hidden-sm hidden-xs">
+                                <div class="col-md-8 pad-l-0">
                                     <div class="caption down">
                                         <h4 class="caption-title">
                                             <a href="<?php echo $this->Crud_model->link_news($row->cat_name, $row->news_id);?>">
@@ -46,8 +45,6 @@
                                 </div>
                             </div>
                         </a>
-                        <hr style="border-top: 1px solid #cbcbcb;">
-
                     </div>
                     <?php } ?>
 

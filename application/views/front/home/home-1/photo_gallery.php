@@ -4,15 +4,17 @@
     $this->db->where('status', 'published');
     $gallery_photos = $this->db->get('photo')->result_array();
 ?>
-<section class="page-section pad-tb-5 gallery_slider" style="margin-top:25px">
+<section class="page-section pad-tb-5 gallery_slider" style="margin-top:25px;">
     <div class="container-fluid">
         <div class="panel">
-            <div class="panel-heading">
+            <div class="panel-heading" style="border: 0px;background-color: white">
                 <a href="<?php echo base_url(); ?>home/photo_gallery">
-                    <h3><?php echo translate($photo_gal_data['title']); ?></h3>
+                    <h3 class="text-dark"><b>ফটোগ্যালারি</b></h3>
+                        <!-- < ?php echo translate($photo_gal_data['title']); ?> -->
                 </a>
                 <a style="margin-top: -38px;" href="<?php echo base_url(); ?>home/photo_gallery" class="btn_seeMore">
-                    <?php echo translate('see_more'); ?>
+                    আরও দেখুন    
+                <!--  < ?php echo translate('see_more'); ?> -->
                 </a>
             </div>
             <div class="panel-body">

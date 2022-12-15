@@ -14,7 +14,7 @@
 <section class="page-section pad-tb-5">
     <div class="container-fluid">
         <a href="<?php echo base_url(); ?>home/sports">
-            <h3 style="margin-left:10px">খেলাধুলা</h3>
+            <h3 style="margin-left:15px" class="text-dark"><b>খেলাধুলা</b></h3>
         </a>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -29,12 +29,11 @@
                               data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[0]['news_id'],'','','thumb','src','multi','one');?>" 
                               alt="image"
                         >
-                        <h3 style=""><?php echo $detail_news[0]['title']; ?></h3>
+                        <h3 class="text-dark"><?php echo $detail_news[0]['title']; ?></h3>
                         <p style=""><?php echo word_limiter($detail_news[0]['summary'], 12); ?>...</p>
                     </div>
                     </a>
                 </div>
-
 
 
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -42,10 +41,17 @@
                         <?php foreach ($detail_news as $key => $row) { 
                             if ($key == 0) {} else {?>
                             <a href="<?php echo $this->Crud_model->link_news($row['cat_name'], $row['news_id']);?>">
-                            <div class=" col-sm-6 col-md-6 col-lg-6" style="height: 220px">
-                                <!-- <img height="120px" width="270px" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/fhfg-20221210162220.jpg"> -->
-                                <img  height="120px" width="270px" class=" col-sm-12 col-md-12 col-lg-12 image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$row['news_id'],'','','thumb','src','multi','one');?>" alt="image">
-                                <h4 class=" col-sm-12 col-md-12 col-lg-12"><?php echo $row['title'] ?></h4>
+                            <div class=" col-sm-6 col-md-6 col-lg-6" style="height:210px;margin-bottom:15px;">
+                                <img  height="120px" 
+                                      width="270px" 
+                                      class=" col-sm-12 col-md-12 col-lg-12 image_delay" 
+                                      src="<?php echo img_loading();?>" 
+                                      data-src="<?php 
+                                                     echo $this->Crud_model
+                                                               ->file_view('news',$row['news_id'],'','','thumb','src','multi','one');
+                                                ?>" 
+                                      alt="image">
+                                <h4 class=" col-sm-12 col-md-12 col-lg-12 text-dark"><?php echo $row['title'] ?></h4>
                             </div>
                             </a>
                         <?php } } ?>

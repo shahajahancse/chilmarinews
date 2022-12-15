@@ -8,11 +8,11 @@
     <div class="container-fluid">
         <div class="panel">
             <div class="panel-heading" style="border:0px;background-color:white ">
-                <a href="<?php echo base_url();?>home/video_gallery"><h3> ভিডিও
-                    <!-- <?php echo translate($video_gal_data['title']); ?> -->
+                <a style="margin-left: 1px;" href="<?php echo base_url();?>home/video_gallery"><h3  class="text-dark"> <b>ভিডিও</b>
+                    <!-- < ?php echo translate($video_gal_data['title']); ?> -->
                 </h3></a>
                 <a style="margin-top:-38px" href="<?php echo base_url();?>home/video_gallery" class="btn_seeMore">
-                   <!-- < ?php echo translate('see_more'); ?> --> আরও দেখুন
+                   <!-- < ?php echo translate('see_more'); ?> --> <span class="">আরও দেখুন</span>
                 </a>
             </div>
             <div class="panel-body">

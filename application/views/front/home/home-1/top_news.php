@@ -21,7 +21,7 @@
                     <a href="<?php echo $this->Crud_model->link_news($top_news[0]['cat_name'], $top_news[0]['news_id']);?>">
                     <div class="col-sm-6 col-md-8 col-lg-9 ">
                         <div class="col-md-8 col-lg-8" >
-                            <img style="width: 100% !important;height:200px" class="img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$top_news[0]['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $top_news[0]['title']; ?>">
+                            <img style="width: 100% !important;height:220px" class="img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$top_news[0]['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $top_news[0]['title']; ?>">
                             <p> <!-- image description here --> </p>
                         </div>
 
@@ -39,8 +39,8 @@
                     <div class="col-sm-6  col-md-4 col-lg-3">
                         <a href="<?php echo $this->Crud_model->link_news($top_news[1]['cat_name'], $top_news[1]['news_id']);?>">
                         <div class="col-lg-12 col-md-12">
-                            <img style="width: 100% !important" 
-                                 class="img-responsive image_delay" 
+                            <img style="width: 204px !important" 
+                                 class=" image_delay" 
                                  src="<?php echo img_loading(); ?>"
                                  data-src="<?php echo $this->Crud_model->file_view('news',$top_news[1]['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $top_news[1]['title']; ?>">
                             <h4 class="text-dark">

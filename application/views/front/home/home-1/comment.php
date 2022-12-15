@@ -15,7 +15,7 @@
 <section class="page-section with-sidebar pad-tb-5" style="margin-bottom:35px">
     <div class="container-fluid">
         <div class="row mar-lr--5">
-            <h3 style="margin-left:10px">মতামত</h3>
+            <h3 style="margin-left:15px" class="text-dark "><b>মতামত</b></h3>
 
             <div class="row">
                 <?php foreach ($detail_news as $key => $row) { ?>

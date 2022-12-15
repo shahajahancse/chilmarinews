@@ -13,7 +13,7 @@
 <section class="page-section with-sidebar pad-tb-5" style="margin-top:20px">
     <div class="container-fluid">
         <div class="row mar-lr--5">
-            <h3 style="margin-left:8px">আন্তর্জাতিক</h3>
+            <h3 style="margin-left:15px" class="text-dark"><b>আন্তর্জাতিক</b></h3>
             <div class="col-lg-12 col-md-9 col-sm-12 col-xs-12 content" id="content">
                 <div class="row">
                     
