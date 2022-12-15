@@ -1,7 +1,7 @@
 <!-- SIDEBAR -->
     <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12 sidebar pull-<?php echo $listing_news_data['sidebar']; ?>" id="sidebar">
     	<div class="box_shadow">
-            <div class="widget thin-border shop-categories">
+            <!-- <div class="widget thin-border shop-categories">
                 <h4 class="widget-title">
                     <?php echo translate('news_search');?>
                     <span class="btn btn-theme-transparent pull-left hidden-lg hidden-md" onClick="close_sidebar();" style="border-radius:50%; position: absolute; top:40px; right:10px;">
@@ -54,9 +54,9 @@
                     <?php }}?>
                     </ul>
                 </div>
-            </div>
-            <div class="widget_box">
-                <div class="widget" style="margin-bottom:15px;">
+            </div> -->
+            <!-- <div class="widget_box"> -->
+                <!-- <div class="widget" style="margin-bottom:15px;">
                     <div class="widget-search">
                         <form>
                             <input class="form-control" id="search_input" style="margin-bottom:15px; border-radius: 4px;" type="text" placeholder="<?php echo translate('search'); ?>">
@@ -71,19 +71,19 @@
                         <option value="oldest"><?php echo translate('oldest'); ?></option>
                         <option value="most_viewed"><?php echo translate('most_viewed'); ?></option>
                     </select>
-                </div>
-                <div id="date_place">
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
             <!-- /advertisement space -->
-            <div class="advertise_space1">
+            <!-- <div class="advertise_space1">
                 <div class="row">
                     <div class="col-md-12">
                     	<?php echo $this->Html_model->advertise_sqr('news_list_1'); ?>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- /advertisement space -->
+            <div id="date_place">
+            </div>
             <div class=" hidden-sm hidden-xs">
             <?php
 				$widgets = $listing_news_data['widgets'];

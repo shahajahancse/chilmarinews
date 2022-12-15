@@ -33,7 +33,7 @@
                             </li>
                             <li class="active">
                                 <a href="<?php echo base_url(); ?>home/news/<?php echo $rows['news_category_id']; ?>/0">
-                                    <?php echo $this->Crud_model->get_type_name_by_id('news_category', $rows['news_category_id']); ?>
+                                    <?php echo $this->Crud_model->get_type_name_by_id('news_category', $rows['news_category_id'],'name_bn'); ?>
                                 </a>
                             </li>
                             <?php

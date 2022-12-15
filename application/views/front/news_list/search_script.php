@@ -17,11 +17,13 @@
 function set_intro(cat,subcat){
 	$('#intro').load("<?php echo base_url()?>home/set_intro/"+cat+"/"+subcat);
 }
+
 function clear_others(){
 	$('#search_input').val('');
 	$("#order_by option[value='none']").prop('selected', true);
 	load_date('none');
 }
+
 function load_date(callback){
 	var st_date = $('#st_date').val();
 	var en_date = $('#en_date').val();
@@ -31,6 +33,7 @@ function load_date(callback){
 		}
 	});
 }
+
 $('.cat_search').on('click',function(e){
 	var cat_selected = $(this).data('cat');
 	$(this).addClass('activate_cat');
@@ -118,7 +121,6 @@ function filter_news(page){
 			console.log(e)
 		}
 	});
-	
 }
 
 $(document).ready(function() {
