@@ -16,7 +16,7 @@
 	$footer_category = json_decode($this->db->get_where('general_settings',array('type' => 'footer_category'))->row()->value);
 ?>
 <footer class="footer2">
-	<div class="footer2-top">
+	<!-- <div class="footer2-top">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
@@ -68,68 +68,47 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 	<div class="footer2-widgets">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="col-md-3 col-sm-4 col-xs-6">
 					<a href="<?php echo base_url(); ?>">
                         <img class="img-responsive footer-logo" src="<?php echo $this->Crud_model->logo('home_bottom_logo'); ?>" alt="">
                     </a>
 				</div>
-				<div class="col-md-2 col-sm-3 hidden-xs">
+				<div class="col-md-6 col-sm-4">
 					<div class="widget widget-categories">
-						<h4 class="widget-title"><?php echo translate('categories');?></h4>
-						<ul>
-                        	<?php 
-							foreach($footer_category as $r){?>
-                            <li>
-                                <a href="<?php echo base_url();?>home/news/<?php echo $r;?>">
-                                    <?php echo $this->Crud_model->get_type_name_by_id('news_category',$r,'name'); ?>
-                                </a>
-                            </li>
-                            <?php }?>
-						</ul>
+						<h4 class="widget-title">About Chilmarinews.com</h4>
+						<p style="text-align:justify">
+							Chilmarinews.com is one of the popular Bangla news portal. 
+							It has begun with commitment of fearless, investigative 
+							and independent journalism. This online portal 
+							has started to provide real time news updates with maximum 
+							use of modern technology from December 16th 2022. Latest & breaking 
+							news of home and abroad, national, international, special reports,
+							politics, economic,health, columns and features.The home of materialistic news.
+						</p>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-3 hidden-xs">
-					<div class="widget widget-categories">
-						<h4 class="widget-title"><?php echo translate('useful_links');?></h4>
-						<ul>
-							<li>
-								<a href="<?php echo base_url(); ?>home/"><?php echo translate('home');?>
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>home/news/0/0"><?php echo translate('all_news');?>
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>home/contact/"><?php echo translate('contact');?>
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>home/faq"><?php echo translate('FAQ');?>
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>home/rss_links"><?php echo translate('rss');?>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-2 hidden-xs hidden-sm">
-					<div class="widget widget-categories">
-						<h4 class="widget-title"><?php echo translate('about_us');?></h4>
-						<p><?php echo $footer_text ;?></p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-3 col-xs-6">
+
+				<div class="col-md-3 col-sm-4 col-xs-8">
 					<div class="widget">
 						<div class="widget contact">
-                            <h4 class="widget-title"><?php echo translate('contact_us');?></h4>
+                            <h4 class="widget-title">Contact Us</h4>
+                            <!-- <h4 class="widget-title">< ?php echo translate('contact_us');?></h4> -->
                             <div class="media-list">
+							<div class="media">
+                                    <!-- <i class="pull-left fa fa-home"></i> -->
+                                    <div class="media-body">
+                                        <!-- <strong>< ?php echo translate('address');?>:</strong> -->
+                                        <!-- <strong>< ?php echo translate('address');?>:</strong>
+                                        < ?php echo $contact_address;?> -->
+										<p style="margin:0px">প্রশাসক ও সম্পাদকঃ</p>
+										<p style="margin:0px">সহকারী অধ্যাপক মোঃ ফজলুল হক</p>
+										<p style="margin:0px">নির্বাহী সম্পাদক এস এম সিনান সাইফ স্বচ্ছ</p>
+                                    </div>
+                                </div>
                                 <div class="media">
                                     <i class="pull-left fa fa-home"></i>
                                     <div class="media-body">
@@ -164,6 +143,7 @@
                         </div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
