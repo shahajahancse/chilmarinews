@@ -7,7 +7,7 @@
 
 ?>
 <!-- Header top bar -->
-<div class="top-bar">
+<div class="top-bar" style="background: #fff !important">
     <div class="container">
         <div style="display:table; width:100%;">
             <div style="display:table-row;">
