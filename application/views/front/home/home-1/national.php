@@ -16,35 +16,31 @@
 <section class="page-section pad-tb-5">
     <div class="container-fluid">
         <a href="<?php echo base_url(); ?>home/national">
-            <h3 style="margin-left:10px">জাতীয়</h3>
+            <h3 style="margin-left:15px" class="text-dark"><b>জাতীয়</b></h3>
         </a>
-        <div class="row">
+        <div class="row" style="margin-left: 0px;">
             <div class="col-lg-12">
                 <div class="row">
                     
                     <?php if(isset($detail_news[0])){ ?>    
                     <a href="<?php echo base_url('home/detail_news/'.url_title($detail_news[0]['cat_name']).'/'.base64_encode($detail_news[0]['news_id']));?>">
 
-                        <div class="col-lg-4">
-                            <img  height="150px" width="380px" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[0]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+                            <img style="height:145px ;width:380px" class="img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[0]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
 
-                            <h4><?php echo $detail_news[0]['title']; ?></h4>
+                            <h4 class="text-dark"><?php echo $detail_news[0]['title']; ?></h4>
                         </div>
                     </a>
                     <?php } ?>
 
-                        <!-- <div class="col-lg-4">
-                            <img height="150px" width="380px" src="https://cdn.jagonews24.com/media/imgAllNew/SM/2019November/ea-1-20221210174027.jpg">
-                            <h4>ঢাকায় পুলিশের পাশাপাশি তৎপর আনসার</h4>
-                        </div>  -->
 
                     <?php if(isset($detail_news[1])){ ?>    
                     <a href="<?php echo base_url('home/detail_news/'.url_title($detail_news[1]['cat_name']).'/'.base64_encode($detail_news[1]['news_id']));?>">
 
-                        <div class="col-lg-4">
-                            <img  height="150px" width="380px" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[1]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
+                        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 ">
+                            <img  style="height:145px ;width:380px" class="img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[1]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
 
-                            <h4><?php echo $detail_news[1]['title']; ?></h4>
+                            <h4 class="text-dark"><?php echo $detail_news[1]['title']; ?></h4>
                         </div>
                     </a>
                     <?php } ?>
@@ -52,10 +48,10 @@
                     <?php if(isset($detail_news[2])){ ?>    
                     <a href="<?php echo base_url('home/detail_news/'.url_title($detail_news[2]['cat_name']).'/'.base64_encode($detail_news[2]['news_id']));?>">
 
-                        <div class="col-lg-4">
-                            <img  height="150px" width="380px" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[2]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
+                        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 ">
+                            <img  style="height:145px ;width:380px" class="img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[2]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
 
-                            <h4><?php echo $detail_news[2]['title']; ?></h4>
+                            <h4 class="text-dark"><?php echo $detail_news[2]['title']; ?></h4>
                         </div>
                     </a>
                     <?php } ?>
@@ -68,9 +64,9 @@
                     <a href="<?php echo base_url('home/detail_news/'.url_title($detail_news[3]['cat_name']).'/'.base64_encode($detail_news[3]['news_id']));?>">
 
                         <div class="col-lg-3">
-                            <img  height="120px" width="270px" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[3]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
+                            <img  height="150px" width="270px" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[3]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
 
-                            <h4><?php echo $detail_news[3]['title']; ?></h4>
+                            <h4 class="text-dark"><?php echo $detail_news[3]['title']; ?></h4>
                         </div>
                     </a>
                     <?php } ?>
@@ -81,7 +77,7 @@
                         <div class="col-lg-3">
                             <img  height="120px" width="270px" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[4]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
 
-                            <h4><?php echo $detail_news[4]['title']; ?></h4>
+                            <h4 class="text-dark"><?php echo $detail_news[4]['title']; ?></h4>
                         </div>
                     </a>
                     <?php } ?>
@@ -92,7 +88,7 @@
                         <div class="col-lg-3">
                             <img  height="120px" width="270px" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[5]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
 
-                            <h4><?php echo $detail_news[5]['title']; ?></h4>
+                            <h4 class="text-dark"><?php echo $detail_news[5]['title']; ?></h4>
                         </div>
                     </a>
                     <?php } ?>
@@ -103,15 +99,11 @@
                         <div class="col-lg-3">
                             <img  height="120px" width="270px" class="image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$detail_news[6]['news_id'],'','','thumb','src','multi','one');?>" alt="image">
 
-                            <h4><?php echo $detail_news[6]['title']; ?></h4>
+                            <h4 class="text-dark"><?php echo $detail_news[6]['title']; ?></h4>
                         </div>
                     </a>
                     <?php } ?>
 
-                    <!-- <div class="col-lg-3">
-                        <img height="120px" width="270px" src="https://cdn.jagonews24.com/media/imgAllNew/SM/2019November/dmp--20221210164315.jpg">
-                        <h4>সমাবেশ শেষের অপেক্ষায় সর্বোচ্চ সতর্ক অবস্থানে ৩২ হাজার ফোর্স</h4>
-                    </div> -->
 
                 </div>
 
