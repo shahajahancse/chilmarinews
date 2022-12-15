@@ -20,17 +20,17 @@
                     <!-- top news -->
                     <a href="<?php echo $this->Crud_model->link_news($top_news[0]['cat_name'], $top_news[0]['news_id']);?>">
                     <div class="col-sm-6 col-md-8 col-lg-9 ">
-                        <div class="col-md-8 col-lg-8" >
+                        <div class="col-md-8 col-lg-7" >
                             <img style="width: 100% !important;height:220px" class="img-responsive image_delay" src="<?php echo img_loading(); ?>" data-src="<?php echo $this->Crud_model->file_view('news',$top_news[0]['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $top_news[0]['title']; ?>">
                             <p> <!-- image description here --> </p>
                         </div>
 
-                        <div class="col-md-4 col-lg-4" > 
+                        <div class="col-md-4 col-lg-5" > 
                             <div class="row">
                                 <h3 class="text-dark col-xs-12" style="margin: 0px;line-height: 1.4;"><?php echo $top_news[0]['title']; ?></h3>
                             </div>
                             <div class="row">
-                                <p class="col-xs-12" style="text-align: justify;"><?php echo word_limiter($top_news[0]['summary'],20); ?>...</p>
+                                <p class="col-xs-12" style="text-align: justify;margin-top:10px"><?php echo word_limiter($top_news[0]['summary'],15); ?>...</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                     <div class="col-sm-6  col-md-4 col-lg-3">
                         <a href="<?php echo $this->Crud_model->link_news($top_news[1]['cat_name'], $top_news[1]['news_id']);?>">
                         <div class="col-lg-12 col-md-12">
-                            <img style="width: 204px !important" 
+                            <img style="width: 204px !important; height: 150px;" 
                                  class=" image_delay" 
                                  src="<?php echo img_loading(); ?>"
                                  data-src="<?php echo $this->Crud_model->file_view('news',$top_news[1]['news_id'],'','','thumb','src','multi','one');?>" alt="<?php echo $top_news[1]['title']; ?>">

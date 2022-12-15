@@ -16,7 +16,7 @@
             <h3 style="margin-left:15px" class="text-dark"><b>আন্তর্জাতিক</b></h3>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content" id="content">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6 col-sm-6 col-lg-12">
+                    <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6">
                         <div class="row">
                             <a href="<?php echo $this->Crud_model->link_news($detail_news[0]['cat_name'], $detail_news[0]['news_id']);?>">
                             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                         <div class="row">
                             <div class="col-xs-6 col-sm-12 col-md-12 mar-t-5">
                                 <a href="<?php echo $this->Crud_model->link_news($detail_news[1]['cat_name'], $detail_news[1]['news_id']);?>">
