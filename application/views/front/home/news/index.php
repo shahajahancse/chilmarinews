@@ -147,7 +147,7 @@
                             <div class="post-control">
                                 <div class="visitor">
                                     <?php echo translate('total_views'); ?> :
-                                    <?php echo number_format($rows['view_count']); ?>
+                                    <?php echo number_format($result->view_count); ?>
                                 </div>
                                 <div class="controls">
                                     <span class="zoom-in" data-toggle="tooltip" title="<?php echo translate('zoom_in'); ?>" data-placement="bottom" >

@@ -1,7 +1,7 @@
-<div style="margin-top:0px;margin-bottom:15px;">
+<div style="margin-top:0px;margin-bottom:10px;">
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-6 col-lg-6">
             <div class="media">
                 <span class="media-link">
                     <?php 
@@ -15,19 +15,19 @@
             </div>
         </div>
 
-        <div class="col-md-8 pad-l-0 hidden-sm hidden-xs">
+        <div class="col-sm-6 col-md-6 col-lg-6  pad-l-0 ">
             <div class="caption down">
-                <h4 class="caption-title">
-                    <a href="<?php echo $this->Crud_model->news_link($news_id);?>">
-                        <?php echo word_limiter($title,10);?>
+                <h4 class="row caption-title">
+                    <a  href="<?php echo $this->Crud_model->news_link($news_id);?>">
+                       <p class="row " style="margin-left: 14px;line-height: 1.5;"> <?php echo word_limiter($title,10);?></p>
                     </a>
                 </h4>
-                <div class="caption-text">
-                    <?php echo word_limiter($summary,15);?>
+                <div class=" hidden-sm hidden-xs caption-text">
+                   <p style="margin-left: 14px;"> <?php echo word_limiter($summary,15);?></p>
                 </div>
             </div>
         </div>
 
     </div>
-    <hr style="border-top: 1px solid #cbcbcb;">
+    <hr class="hidden-sm hidden-xs" style="border-top: 1px solid #cbcbcb;">
 </div>
